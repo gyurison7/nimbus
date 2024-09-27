@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="그룹_156" data-name="그룹 156" transform="translate(29.37 29.367) rotate(-180)">
+    <g id="그룹_132" data-name="그룹 132" transform="translate(-0.228 -0.231)">
+      <rect id="사각형_31" data-name="사각형 31" width="30" height="30" transform="translate(29.598 29.598) rotate(180)" fill="none"/>
+      <g id="그룹_159" data-name="그룹 159" transform="translate(3.112 3.734)">
+        <path id="합치기_3" data-name="합치기 3" d="M17.582,17.453V1.289a1.289,1.289,0,0,1,2.578,0V17.453a1.289,1.289,0,1,1-2.578,0ZM7.273,16.443a1.209,1.209,0,0,1,0-1.709L10.9,11.108H1.29a1.289,1.289,0,1,1,0-2.578H10.9L7.273,4.9A1.208,1.208,0,0,1,8.981,3.2l5.77,5.769a1.208,1.208,0,0,1,0,1.708l-5.77,5.769a1.209,1.209,0,0,1-1.708,0Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

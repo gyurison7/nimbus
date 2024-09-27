@@ -1,0 +1,1083 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- metadata -->
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/images/lgDomain/favicon.ico" />
+<title>LG U+ CDN Management Portal</title>
+
+<!-- jquery -->
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<!-- moment -->
+<script src="/js/plugins/moment/moment.min.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+
+<!-- Serialize object or json -->
+<script src="/js/jquery.serializeObject.min.js" type="text/javascript"></script>
+
+<!-- custom util scripts -->
+<script src="/js/ajax.js"></script>
+<script>
+	function getCsrf() {
+		return "a9207159-1b38-4567-8506-1bd15cf7e6fd";
+	}
+</script>
+
+	<link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+	<link href="/css/plugins/switchery/switchery.css" rel="stylesheet">
+	<link href="/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+	<link href="/css/plugins/multiselect/bootstrap-multiselect.css"  rel="stylesheet">
+	
+	<!-- common css -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<link href="/css/animate.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+	<style>
+		.dashbd-t {
+			margin:0;
+		}
+		.dashbd-t .dashbd-t-body {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			padding: 0;
+		}
+		/* dashboard memo가 긴 경우 element를 키우는 방식 */
+		/*.dashbd-t .dashbd-t-body:hover {*/
+		/*	word-wrap: break-word;*/
+		/*	overflow: visible;*/
+		/*	white-space: normal;*/
+		/*}*/
+		.dashbd-t .dashbd-t-footer {
+			flex: 0 0 166px;
+			position: unset;
+			top: 0;
+			right: 0;
+		}
+	</style>
+</head>
+
+<body class="">
+	<div id="wrapper">
+
+		<!-- left menu -->
+		
+
+
+
+
+
+<!-- side-menu //-->
+
+
+
+<style>
+	.logo-element span {
+		background-image:url("/images/lgDomain/header-logo.png");
+	}
+	body.mini-navbar .logo-element span {
+		background-image:url("/images/lgDomain/header-logo-mini.png");
+	}
+</style>
+
+<nav class="navbar-default navbar-static-side" role="navigation" style="z-index: 2052";>
+	<div class="sidebar-collapse">
+		<ul class="nav metismenu" id="side-menu">
+			<li class="nav-header">
+				<div class="logo-element"><span>CDN Management Portal</span></div>
+			</li>
+			
+				<li class="active">
+					<a href="/dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">대시보드 </span></a>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">통계 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/statistics/traffic">트래픽</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/transfer">전송량</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/contents/contents">컨텐츠 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/access/request">접속 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/storage_stat">스토리지 사용량</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">오리진 통계 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/origin-statistics/traffic">트래픽</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/origin-statistics/transfer">전송량</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/origin-statistics/access/request">접속 정보</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">관리 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/management/purge">퍼지</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/preload">프리로드</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/domain/list">도메인 관리</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/domain-detail-info">도메인 세부 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/account/list">서브 계정 관리</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/report/list">리포트 설정</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/acl/list">ACL 관리</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+
+			
+
+			
+				<li>
+					<a href="http://210.178.1.76:8880" target="_blank"><i class="fa fa-external-link"></i> <span class="nav-label">사용자 가이드 바로가기 </span></a>
+				</li>
+			
+
+		</ul>
+	</div>
+</nav>
+<!--// side-menu -->
+
+		<!-- page-wrapper //-->
+		<div id="page-wrapper" class="gray-bg">
+
+			<!-- header -->
+			
+
+
+
+
+
+
+
+<script>
+
+	function getCookie(cName){
+		cName = cName + '=';
+		var cookieData = document.cookie;
+		var start = cookieData.indexOf(cName);
+		var cValue = '';
+		if(start != -1){
+			start += cName.length;
+			var end = cookieData.indexOf(';', start);
+			if(end == -1)end = cookieData.length;
+			cValue = cookieData.substring(start, end);
+		}
+		return unescape(cValue);
+	}
+
+	$(document).ready(function(){
+		var $noticeModal;
+
+		var notice_hide_cookie = getCookie("notice_hide");
+		/*if((notice_hide_cookie === undefined || notice_hide_cookie === "") && ""!=="true"){*/
+		if((notice_hide_cookie === undefined || notice_hide_cookie === "")){
+
+			if("true"==="false"){
+				callPortal('/api/notice/get', null, getCsrf(), function(data) {
+					var notice = data.notice;
+					if(notice != null && notice !== ""){
+						$("#noticeModal").append(data.notice);
+						$noticeModal = $("#noticeModal");
+						$noticeModal.modal("show");
+					}
+				});
+			}
+		}
+
+		$(document).on("click", "#noticeCheck", function () {
+			var checked = this.checked;
+			if(checked){
+				var today = new Date();
+				today.setHours( today.getHours() + 23-today.getHours() );
+				today.setMinutes(today.getMinutes() + 60-today.getMinutes());
+				document.cookie = 'notice_hide' + '=' + checked + ';expires=' + today.toUTCString() + ';path=/';
+				$noticeModal.modal("hide");
+			}
+		});
+	});
+</script>
+<style>
+	
+	.error {
+		color: red;
+	}
+</style>
+
+<!--notice modal-->
+<div id="noticeModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+</div>
+
+<!-- border-bottom //-->
+<div class="row border-bottom">
+	<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom:0">
+		<div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i></a></div>
+		<ul class="nav navbar-top-links navbar-right">
+			<div class="row" style="width:330px">
+				<li class="dropdown col-sm-7">
+					<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> admin</a>
+					<form role="form" id="formLogout" method="POST">
+						<ul class="dropdown-menu dropdown-alerts">
+							<li><a href="/account/detail" class="dropdown-item"><div><i class="fa fa-address-book fa-fw"></i> 계정정보</div></a></li>
+							<li class="dropdown-divider"></li>
+							<li id="logout"><a href="#" class="dropdown-item"><div><i class="fa fa-power-off fa-fw"></i> 로그아웃</div></a></li>
+						</ul>
+						<input type="hidden" name="_csrf" value="a9207159-1b38-4567-8506-1bd15cf7e6fd"/>
+					</form>
+				</li>
+				<form class="col-sm-5" id="formLangSelect" method="GET" style="margin: auto;">
+					<select class="form-control" id="lang-select" name="lang">
+					</select>
+				</form>
+			</div>
+		</ul>
+	</nav>
+</div>
+<!--// border-bottom -->
+<script>
+	// Spring Message Init
+	var msgSelectAll='전체';
+	var msgPlaceHolder='검색어를 입력하세요';
+	var msgNonSelected='선택';
+	var msgNSelected='개 선택됨';
+	var msgAllSelected='전체 선택됨';
+
+	var msgEmptyTable='데이터가 존재하지 않습니다.';
+	var msgInfo='_START_ ~ _END_ / 총 _TOTAL_ 개';
+	var msgLengthMenu='보기 설정 _MENU_ 개';
+	var msgSearch='검색';
+	var msgZeroRecords='검색 결과를 찾을 수 없습니다.';
+
+	var msgInfoExcept='외';
+	var msgInfoDomains='개 도메인';
+
+	$(document).ready(function() {
+		var chkSession_custID = '2';
+
+		if (chkSession_custID == '') {
+			$('#logout').click();
+		}
+
+		$('#logout').on('click', function() {
+			$('#formLogout').attr('action','/logout');
+			$('#formLogout').submit();
+		});
+
+		var  languages = [
+			"<option value='ko'>한국어</option>",
+			"<option value='en'>English</option>"
+		];
+		$('#lang-select').html(languages);
+		$('#lang-select').val("ko");
+
+		$('#lang-select').on('change', function(){
+			$.get("/management/account/sitelang/" + $(this).val() ,function() {}); // 이 라인 삭제하면 언어 변경 시 관련 버그 생김. ex) 메뉴권한정보 페이지
+
+			$('#formLangSelect').attr('action', window.location.toString());
+			$('#formLangSelect').submit();
+		});
+
+		// Minimalize menu
+		$('.navbar-minimalize').on('click', function (event) {
+			event.preventDefault();
+			$("body").toggleClass("mini-navbar");
+
+			callPortalGet('/api/session/menu/update', getCsrf());
+
+			SmoothlyMenu();
+		});
+
+		// Close menu in canvas mode
+		$('.close-canvas-menu').on('click', function (e) {
+			e.preventDefault();
+			$("body").toggleClass("mini-navbar");
+			SmoothlyMenu();
+		});
+
+		function SmoothlyMenu() {
+			if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
+				// Hide menu in order to smoothly turn on when maximize menu
+				$('#side-menu').hide();
+				// For smoothly turn on menu
+				setTimeout(
+						function () {
+							$('#side-menu').fadeIn(400);
+						}, 200);
+			} else if ($('body').hasClass('fixed-sidebar')) {
+				$('#side-menu').hide();
+				setTimeout(
+						function () {
+							$('#side-menu').fadeIn(400);
+						}, 100);
+			} else {
+				// Remove all inline style from jquery fadeIn function to reset menu state
+				$('#side-menu').removeAttr('style');
+			}
+		}
+	});
+</script>
+
+
+			<!-- page-heading //-->
+			<div class="row wrapper border-bottom white-bg page-heading" id="heading" data-tab="dashboard">
+				<div class="col-lg-10">
+					<h2>대시보드</h2>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-home"></i> Home</a></li>
+						<li class="breadcrumb-item active"><strong>대시보드</strong></li>
+					</ol>
+				</div>
+			</div>
+			<!--// page-heading -->
+
+			<!-- wrapper-content //-->
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+					<div class="col-lg-3">
+
+					</div>
+					<div class="col-lg-9">
+						<div class="ibox title-action">
+							<!-- <button class="btn btn-black btn-sm" data-toggle="modal" data-target="#myModal1"><i class="fa fa-calendar"></i> 기간설정</button> -->
+							<button class="btn btn-black btn-sm" data-toggle="modal" data-target="#addPortlet"><i class="fa fa-plus"></i> 항목 추가</button>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="row" id="sortable-view"></div>
+					</div>
+				</div>
+			</div>
+			<!--// wrapper-content -->
+
+			<!-- footer -->
+			
+
+<div class="footer">
+	<div class="float-right btn-xs">※ 본 사이트는 해상도 가로 1280px 이상을 권장하며, 사파리(Mac OS) / Chrome / IE11 이상의 최신 브라우저에 최적화되어 있습니다.</div>
+</div>
+
+
+
+
+
+<div class="wrap-loading display-none" style="z-index: 2051;"> <!-- modal z-index : 2050 -->
+	<div>
+		<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+	</div>
+</div>
+<!-- custom util scripts -->
+<script language="JavaScript" src="/js/common_util.js" charset="UTF-8"></script>  
+		</div>
+		<!--// page-wrapper -->
+
+		<!-- Period setter Modals -->
+		<div class="modal inmodal fade" id="periodSetter" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content animated fadeIn">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">조회 기간 설정</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">기간 선택</label>
+								<select name="md1" id="periodPreset" class="form-control">
+								
+									<option value="TODAY" data-interval="60000">오늘</option>
+								
+									<option value="YESTERDAY" data-interval="60000">어제</option>
+								
+									<option value="LAST_7DAYS" data-interval="3600000">최근 7일</option>
+								
+									<option value="THIS_MONTH" data-interval="86400000">이번달</option>
+								
+									<option value="LAST_MONTH" data-interval="86400000">지난달</option>
+								
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-red" id="btnPortletPeriodUpdate">저장</button>
+						<button type="button" class="btn btn-black" data-dismiss="modal" id="btnPortletPeriodUpdateCancel">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END OF Period setter Modals -->
+
+		<!-- Portlet closer Modals -->
+		<div class="modal inmodal fade" id="portletRemover" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content animated fadeIn">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">삭제</h4>
+					</div>
+					<div class="modal-body">
+						<p class="text-center m-b-none">정말 삭제하시겠습니까?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-red" id="btnPortletRemove">삭제</button>
+						<button type="button" class="btn btn-black" data-dismiss="modal" id="btnPortletRemoveCancel">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END OF Portlet closer Modals -->
+
+		<!-- Portlet adder Modal -->
+		<form id="formPortletAdd">
+		<div class="modal inmodal fade" id="addPortlet" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog">
+				<div class="modal-content animated fadeIn">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">항목 추가</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">통계 항목</label>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="statTypeTraffic" name="statType" value="TRAFFIC" checked="checked">
+											<label for="statTypeTraffic">Traffic</label>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="statTypeTransfer" name="statType" value="TRANSFER">
+											<label for="statTypeTransfer">Transfer</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr/>
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">조회 유형</label>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="statGroupPath" name="statGroup" value="DOMAIN" checked="checked">
+											<label for="statGroupPath">도메인</label>
+
+										</div>
+									</div>
+
+
+
+
+
+
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="statGroupServiceGroup" name="statGroup" value="SERVICE_GROUP">
+											<label for="statGroupServiceGroup">서비스 그룹</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">조회 대상</label>
+								<div id="multiselect-wrap">
+									<select name="targetSeqList[]" id="multiselect" multiple="multiple">
+									</select>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">메모</label><small class="text-red"> * 옵션 입력</small>
+								<input type="text" name="memo" id="dashboardMemo" class="form-control" placeholder="메모를 입력해주세요.">
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">조회 기간</label>
+								<div class="row">
+									
+									<div class="col-lg-4">
+										<div class="radio radio-red">
+											<input type="radio" id="searchPeriodTODAY" name="searchPeriod" value="TODAY" data-interval="60000" checked>
+											<label for="searchPeriodTODAY">오늘</label>
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										<div class="radio radio-red">
+											<input type="radio" id="searchPeriodYESTERDAY" name="searchPeriod" value="YESTERDAY" data-interval="60000" >
+											<label for="searchPeriodYESTERDAY">어제</label>
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										<div class="radio radio-red">
+											<input type="radio" id="searchPeriodLAST_7DAYS" name="searchPeriod" value="LAST_7DAYS" data-interval="3600000" >
+											<label for="searchPeriodLAST_7DAYS">최근 7일</label>
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										<div class="radio radio-red">
+											<input type="radio" id="searchPeriodTHIS_MONTH" name="searchPeriod" value="THIS_MONTH" data-interval="86400000" >
+											<label for="searchPeriodTHIS_MONTH">이번달</label>
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										<div class="radio radio-red">
+											<input type="radio" id="searchPeriodLAST_MONTH" name="searchPeriod" value="LAST_MONTH" data-interval="86400000" >
+											<label for="searchPeriodLAST_MONTH">지난달</label>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="form-group m-b-none">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">그래프 타입</label>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="graphTypeTotal" name="graphTypeTotal" value="true" checked="checked">
+											<label for="graphTypeTotal" id="graphTypeTotalLabel">통합 그래프</label>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="graphTypeNormal" name="graphTypeTotal" value="false">
+											<label for="graphTypeNormal" id="graphTypeNormalLabel">개별 그래프</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr/>
+						<div class="form-group m-b-none">
+							<div class="col-lg-12">
+								<label class="col-form-label text-red">자동 새로고침</label>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="autoRefreshOff" name="autoRefresh" value="false" checked="checked">
+											<label for="autoRefreshOff">비활성화</label>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="radio radio-red">
+											<input type="radio" id="autoRefreshOn" name="autoRefresh" value="true">
+											<label for="autoRefreshOn">활성화</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-red" id="btnPortletAdd">생성</button>
+						<button type="button" class="btn btn-black" id="btnPortletAddCancel" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+		<!-- END OF Portlet adder Modal -->
+		<input type="hidden" id="test" value=""/>
+	</div><!--// wrapper -->
+	
+	<!-- common js -->
+	
+
+<!-- Mainly scripts -->
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- sub js -->
+	
+
+<!-- Custom and plugin javascript -->
+<script src="/js/inspinia.js"></script>
+<script src="/js/plugins/pace/pace.min.js"></script>
+
+<!-- Toastr -->
+<script src="/js/plugins/toastr/toastr.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+	});
+</script>
+
+	<!-- jquery UI -->
+	<script src="/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+	<!-- Multi select -->
+	<script type="text/javascript" src="/js/plugins/multiselect/bootstrap-multiselect.js"></script>
+	
+	
+	<!-- nimbus custom -->
+	<script type="text/javascript" src="/assets/echarts/echarts-en.min.js"></script>
+	<script type="text/javascript" src="/js/nimbus/nimbus_stat_utils.js"></script>
+	<script type="text/javascript" src="/js/nimbus/nimbus_echart.js"></script>
+	
+	
+	
+	<script>
+	
+		var refreshMap = new Object();
+		var echartList = [];
+
+		$(window).resize(function(){
+			if(echartList.length == 0){
+				return;
+			}
+			echartList.forEach(function(echartObj){
+				echartObj.echart.resize();
+			})
+		});
+		
+		$(document).ready(function() {
+			// Portlet initialize
+			initPortlets();
+			// Portlet 항목 추가의 MultiSelect 기능 초기화
+			initMultiSelect();
+			
+			// Portlet 항목 추가의 조회 유형 변경시 MultiSelect 기능 초기화
+			$('[name=statGroup]').on('change', function() {
+				initMultiSelect();
+			});
+			
+			// Portlet 정렬 기능 초기화
+			$('#sortable-view').sortable({
+				tolerance: "pointer",
+				update: function(event, ui) {
+					// Portlet 위치 업데이트
+					updatePosition();
+				}
+			});
+			
+			// Portlet 추가
+			$('#btnPortletAdd').on('click', function() {
+				addPortlet();	
+			});
+			// Portlet 삭제
+			$('#btnPortletRemove').on('click', function() {
+				removePortlet();
+			});
+			// Portlet Period 업데이트
+			$('#btnPortletPeriodUpdate').on('click', function() {
+				updatePortletPeriod();
+			});
+
+			// 5m DB auto refresh 허용
+			$('input[name=searchPeriod]').on('click', function() {
+				if($(this).val()==="YESTERDAY" || $(this).val()==="TODAY"){
+					$('#autoRefreshOn').prop('disabled',false);
+				} else {
+					$('#autoRefreshOff').prop('checked',true);
+					$('#autoRefreshOn').prop('disabled',true);
+				}
+			});
+
+			$("input[name='statGroup']").on('change', function(event){
+				if($(this).val()==="DOMAIN"){
+					$("#graphTypeTotal").prop('disabled', false);
+					$("#graphTypeNormalLabel").html("개별 그래프");
+				} else if ($(this).val()==="SERVICE_GROUP"){
+					$("#graphTypeNormal").prop('checked', true);
+					$("#graphTypeTotal").prop('disabled', true);
+					$("#graphTypeNormalLabel").html("서비스 그룹 단위");
+				}
+			});
+
+			chkDashboardTitleOverflow();
+		});
+
+		function chkDashboardTitleOverflow(){
+			// 대시보드 타이틀이 크기를 초과하는 경우, title로 지정하여 마우스 over시 전체 내용 확인 가능
+			$(document).on('mouseenter', 'div.dashbd-t-body', function () {
+				var $this = $(this);
+				if(this.offsetWidth < this.scrollWidth && !$this.attr('title')){
+					$this.attr('title', $this.text());
+				}
+			});
+		}
+
+		function getUserId() {
+			
+			;
+			return 'admin';
+		}
+		
+		function getPortlets() {
+			return JSON.parse('[{"portletSeq":"19","userId":"null","title":"도메인","statType":"TRAFFIC","memo":"","position":"0","apiUrl":"/cdnservice/stat/traffic","apiBody":{"api_request":{"total":true,"authPwd":"9b6bc3109360c6b0fb6778094dbb8ca4eac4319af2cd377e0ffa4f728db490590df07c85c353f5448afbab2480a41f44","periodPreset":"TODAY","customerId":2,"statGroup":"path","targetSeqList":[46,49,55],"authId":"admin"}},"statTimeUnit":"MIN","interval":"60000","autoRefresh":"false"}, {"portletSeq":"10","userId":"null","title":"도메인","statType":"TRAFFIC","memo":"","position":"1","apiUrl":"/cdnservice/stat/traffic","apiBody":{"api_request":{"total":false,"authPwd":"9b6bc3109360c6b0fb6778094dbb8ca4eac4319af2cd377e0ffa4f728db490590df07c85c353f5448afbab2480a41f44","periodPreset":"TODAY","customerId":2,"statGroup":"path","targetSeqList":[46,49,55],"authId":"admin"}},"statTimeUnit":"MIN","interval":"60000","autoRefresh":"false"}, {"portletSeq":"31","userId":"null","title":"서비스 그룹","statType":"TRANSFER","memo":"긴 메모 입력 테스트입니다. 긴 메모 입력 테스트입니다. 긴 메모 입력 테스트입니다. 긴 메모 입력 테스트입니다. 긴 메모 입력 테스트입니다. 긴 메모 입력 테스트입니다. ","position":"2","apiUrl":"/cdnservice/stat/transfer","apiBody":{"api_request":{"total":false,"authPwd":"9b6bc3109360c6b0fb6778094dbb8ca4eac4319af2cd377e0ffa4f728db490590df07c85c353f5448afbab2480a41f44","periodPreset":"TODAY","customerId":2,"statGroup":"tag","targetSeqList":[13],"authId":"admin"}},"statTimeUnit":"MIN","interval":"60000","autoRefresh":"false"}, {"portletSeq":"49","userId":"null","title":"도메인","statType":"TRAFFIC","memo":"대시보드 메모 입력 12345","position":"3","apiUrl":"/cdnservice/stat/traffic","apiBody":{"api_request":{"total":false,"authPwd":"9b6bc3109360c6b0fb6778094dbb8ca4eac4319af2cd377e0ffa4f728db490590df07c85c353f5448afbab2480a41f44","periodPreset":"TODAY","customerId":2,"statGroup":"path","targetSeqList":[46,49],"authId":"admin"}},"statTimeUnit":"MIN","interval":"60000","autoRefresh":"false"}]');
+		}
+
+		function initPortlets() {
+			var portlets = getPortlets();
+			for(var idx=0; idx<portlets.length; idx++) {
+				initPortlet(portlets[idx]);
+			}
+		}
+		
+		function initPortlet(portlet) {
+			// ui 추가
+			$('#sortable-view').append('<div class="col-lg-6 portlet"><div class="ibox"><div class="ibox-title dashbd-t row"><h5 class="col dashbd-t-header"></h5>' +
+					'<div class="col dashbd-t-body"></div><div class="ibox-tools col align-self-end dashbd-t-footer"><div class="switch tooltip-show" style="margin-top:0px;"><span class="tooltip-text">' +
+					'자동 새로고침 ON/OFF 설정</span><div class="onoffswitch"> ' +
+					' <input type="checkbox" class="onoffswitch-checkbox" name="autoRefresh"><label class="onoffswitch-label" style="margin:0px;"> ' +
+					' <span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></div> ' +
+					' <a data-toggle="modal" data-target="#periodSetter" class="periodSetter"><i class="fa fa-calendar"></i> ' +
+					' 기간 선택</a> ' +
+					' <a data-toggle="modal" data-target="#portletRemover" class="portletRemover"><i class="fa fa-times"></i> ' +
+					' </a></div></div><div class="ibox-content"><h2></h2><p style="min-height:300px;"></p><div></div></div></div></div>');
+			var portletObj = $('.portlet').eq($('.portlet').length-1);
+			var portletTitle = portlet.statType + ' - ' + portlet.title;
+			var portletTitleWidth = portletTitle.length * 9;
+			
+			portletObj.attr('id', 'portlet'+portlet.portletSeq);
+			portletObj.data('seq', portlet.portletSeq);
+			portletObj.data('period', portlet.apiBody.api_request.periodPreset);
+			portletObj.data('interval', portlet.interval);
+			portletObj.data('url', portlet.apiUrl);
+			portletObj.data('body', portlet.apiBody);
+			portletObj.data('statType', portlet.statType);
+			portletObj.find('.ibox-title h5').text(portletTitle);
+			portletObj.find('.ibox-title h5').css("flex", "0 0 "+portletTitleWidth+"px");
+			portletObj.find('.ibox-title .dashbd-t-body').text(portlet.memo == "" ? "" : "- " + portlet.memo);
+			// if (portlet.apiBody.api_request.total) {
+			// 	portletObj.find('.ibox-title h5').text(portlet.statType + ' - ' + portlet.title + ' Total');
+			// } else {
+			// 	portletObj.find('.ibox-title h5').text(portlet.statType + ' - ' + portlet.title);
+			// }
+
+			if(portlet.apiBody.api_request.periodPreset!=="TODAY" && portlet.apiBody.api_request.periodPreset !=="YESTERDAY"){
+				portletObj.find('.ibox-tools input').prop('disabled', true);
+			}
+			portletObj.find('.ibox-tools input').prop('checked', eval(portlet.autoRefresh));
+			portletObj.find('.ibox-tools input').attr('id', 'autoRefresh'+portlet.portletSeq);
+			portletObj.find('.ibox-tools label').attr('for', 'autoRefresh'+portlet.portletSeq);
+			portletObj.find('.ibox-tools a:eq(0)').data('seq', portlet.portletSeq);
+
+			portletObj.find('.ibox-content p').attr('id','eChartContainer'+portletObj.data('seq'));
+			portletObj.find('.ibox-content div').attr('id','eChartText'+portletObj.data('seq'));
+			// 그래프 초기화
+			initGraph(portletObj, true);
+
+			// 그래프 Auto Refresh
+			initRefreshGraph(portletObj);
+			
+			// bind buttons
+			portletObj.find('.periodSetter').on('click', function() {
+				$('#periodSetter').data('seq', portletObj.data('seq'));
+				$('#periodPreset option[value='+portletObj.data('period')+']').prop('selected', true);
+			});
+			
+			portletObj.find('.portletRemover').on('click', function() {
+				$('#portletRemover').data('seq', portletObj.data('seq'));
+			});
+			
+			portletObj.find('[name=autoRefresh]').on('change', function() {
+				updateAutoRefresh($(this));
+			});
+			
+		}
+		
+		function initMultiSelect() {
+			$('#multiselect').html("");
+			if($('#statGroupPath').prop('checked')) {
+				$('#multiselect').append("<option value='46'>http://stattest-download01.dl.cdn.ons.nimbuscdn.net ( 서비스 종류 : download-nginx )</option><option value='49'>http://stattest-vod01.vod.cdn.ons.nimbuscdn.net ( 서비스 종류 : vod-nginx )</option><option value='55'>http://stattest-cache01.cache.cdn.ons.nimbuscdn.net ( 서비스 종류 : cache-nginx )</option><option value='61'>http://stattest-pathcontents01.dl.cdn.ons.nimbuscdn.net ( 서비스 종류 : download-nginx )</option><option value='67'>http://contents-test-01.dl.cdn.ons.nimbuscdn.net ( 서비스 종류 : download-nginx )</option>");
+			} else if($('#statGroupDomain').prop('checked')) { /* statGroupDomain 사용X */
+				$('#multiselect').append("");	
+			} else {
+				$('#multiselect').append("<option value='13'>download and cache</option><option value='16'>vod and cache</option><option value='19'>download and vod</option><option value='22'>LIVE</option>");
+			}
+
+		$('#multiselect').multiselect('destroy');
+		$('#multiselect').multiselect({
+			includeSelectAllOption: true,
+			buttonWidth: '100%',
+			enableFiltering: true,
+			numberDisplayed: 1,
+			templates: {
+				li: '<li style="max-height:32px;"><a tabindex="0"><label style="max-height:22px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"></label></a></li>'
+			}
+		});
+		}
+
+		function addPortlet() {
+			if($('#multiselect').val().length < 1) {
+				alert('한 개 이상의 조회 대상을 선택해 주세요.');
+				return;
+			}
+
+			if($("#dashboardMemo").val().length > 255){
+				alert('메모는 최대 255 글자까지 등록 가능합니다.');
+				return;
+			}
+			
+			$('#formPortletAdd').append("<input type='hidden' name='position' value='"+$('.portlet').length+"'/>");
+			var reqData = $('#formPortletAdd').serializeObject();
+
+			callPortal("/api/dashboard/portlet/add", reqData, getCsrf(), function(res) {
+				// alert(res.message);
+				$('#btnPortletAddCancel').click();
+				if(res.success) {
+					initPortlet(JSON.parse(res.data));
+				}
+			});
+		}
+		
+		function updatePosition() {
+			var reqData = new Array();
+			
+			$('#sortable-view .portlet').each(function() {
+				var map = new Object();
+				map.portletSeq = $(this).data('seq');
+				map.position = $(this).index();
+				map.userId = getUserId();
+				reqData.push(map);
+			});
+
+			callPortal("/api/dashboard/portlet/update/position", reqData, getCsrf(), function(res) {}, null);
+		}
+		
+		function updateAutoRefresh(obj) {
+			var portletObj = obj.parents('.portlet');
+			var reqData = {
+				portletSeq : portletObj.data('seq'),
+				userId : getUserId(),
+				autoRefresh : obj.prop('checked')
+			};
+
+			callPortal("/api/dashboard/portlet/update/auto-refresh", reqData, getCsrf(), function(res) {
+				if(res.success) {
+					initRefreshGraph(portletObj);
+				}
+			});
+		}
+		
+		function removePortlet() {
+			var reqData = {
+				portletSeq : $('#portletRemover').data('seq')
+			};
+			
+			callPortal("/api/dashboard/portlet/remove", reqData, getCsrf(), function(res) {
+				// alert(res.message);
+				if(res.success) {
+					$('#btnPortletRemoveCancel').click();
+					var portletObj = $('#portlet'+$('#portletRemover').data('seq'));
+					portletObj.find('[name=autoRefresh]').prop('checked', false);
+
+					portletObj.remove();
+
+					var idx = echartList.findIndex(function(item){
+						return item.seq === reqData.portletSeq;
+					})
+					echartList.splice(idx, 1);
+				}
+			});
+		}
+		
+		function updatePortletPeriod() {
+			var reqData = {
+				portletSeq : $('#periodSetter').data('seq'),
+				userId : getUserId(),
+				periodPreset : $('#periodPreset').val()
+			};
+			
+			callPortal("/api/dashboard/portlet/update/search-period", reqData, getCsrf(), function(res) {
+				if(res.success) {
+					var portletObj = $('#portlet'+reqData.portletSeq);
+					var isRefreshable = $('#periodPreset').val()!=="TODAY" && $('#periodPreset').val()!=="YESTERDAY";
+
+					portletObj.data('period', $('#periodPreset').val());
+					portletObj.data('interval', $('#periodPreset option[value='+$('#periodPreset').val()+']').data('interval'));
+					var body = portletObj.data('body');
+					body.api_request.periodPreset = $('#periodPreset').val()
+					portletObj.data('body', body);
+					$('#btnPortletPeriodUpdateCancel').click();
+
+					initRefreshGraph(portletObj);
+
+					portletObj.find('.ibox-tools input').prop('disabled', isRefreshable);
+					if(isRefreshable){
+						portletObj.find('.ibox-tools input').prop('checked', false);
+					}
+				}
+			});
+		}
+
+		function initGraph(portletObj, firsttime_initialized) {
+			portletObj.find('.ibox-content p').attr('_echarts_instance_', "");
+			portletObj.find('.ibox-content p').html("");
+			portletObj.find('.ibox-content div').html("");
+
+			callApi(portletObj.data('url'), portletObj.data('body'), getCsrf(), function(res) {
+				if(res.success) {
+					var apiResult = responseSort(JSON.parse(res.data));
+					var domGraph = document.getElementById('eChartContainer'+portletObj.data('seq'));
+		            var domText = null;
+		            var echarUtil = nimbus.echart.EChartController;
+		            var conversionUnitData = getConversionUnitData();
+					var echart = echarUtil.SetBaseLineChart(portletObj.data('statType'), domGraph, domText, apiResult, false, false, conversionUnitData);
+					if(firsttime_initialized){
+						var echartObj = new Object();
+						echartObj['seq'] = portletObj.data('seq');
+						echartObj['echart'] = echart;
+						echartList.push(echartObj);
+					}else{
+						echartList.find(function(element){
+							if(element['seq'] == portletObj.data('seq')){
+								element['echart'] = echart;
+								return true;
+							}
+						});
+					}
+				} else {
+					alert(res.message);
+				}
+			}, null);
+		}
+		
+		function initRefreshGraph(portletObj) {
+			var func = refreshMap['portlet' + portletObj.data('seq')];
+
+			if(portletObj.find('input').prop('checked')) {
+				if(func == null) {
+				} else {
+					clearInterval(func);
+					initGraph(portletObj, false);
+				}
+				refreshMap['portlet'+portletObj.data('seq')] = refreshStart(portletObj);
+			} else {
+				if(func == null) {
+					initGraph(portletObj, false);
+				} else {
+					clearInterval(func);
+					refreshMap['portlet'+portletObj.data('seq')] = null;
+				}
+			}
+		}
+		
+		function refreshStart(portletObj) {
+			var interval = portletObj.data('interval');
+			if(interval == null || interval < 60000) {
+				return null;
+			}
+			var func = setInterval(function() {
+				initGraph(portletObj, false);
+			}, interval);
+			return func;
+		}
+
+		function getConversionUnitData() {
+			return JSON.parse('{"speedyDomain":false,"conversionUnit":1000}');
+		}
+		
+	</script>
+</body>
+</html>

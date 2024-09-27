@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="59" viewBox="0 0 60 59">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_194" data-name="사각형 194" width="60" height="59" transform="translate(-0.049 0.456)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_228" data-name="그룹 228" transform="translate(0.049 -0.456)" clip-path="url(#clip-path)">
+    <path id="패스_133" data-name="패스 133" d="M32.96,46.017H3.419V31.2a3.532,3.532,0,0,1,3.532-3.532V42.486H29.428A3.532,3.532,0,0,1,32.96,46.017Z" transform="translate(0.842 6.813)" fill="#fc9900"/>
+    <path id="패스_134" data-name="패스 134" d="M6.951,29.919H3.419V5.643A3.531,3.531,0,0,1,6.951,9.175Z" transform="translate(0.842 1.389)" fill="#006fcc"/>
+    <rect id="사각형_189" data-name="사각형 189" width="4.26" height="4.26" transform="translate(30.77 12.897)" fill="#ff2929"/>
+    <rect id="사각형_190" data-name="사각형 190" width="4.26" height="4.26" transform="translate(38.137 12.897)" fill="#fc9900"/>
+    <rect id="사각형_191" data-name="사각형 191" width="4.26" height="4.26" transform="translate(45.505 12.897)" fill="#006fcc"/>
+    <rect id="사각형_192" data-name="사각형 192" width="2.975" height="8.602" transform="translate(37.469 38.329) rotate(-45)" fill="#fc9900"/>
+    <path id="패스_135" data-name="패스 135" d="M30.7,37.771l-4.8-4.8a5.869,5.869,0,0,1-.565-7.811,5.7,5.7,0,0,1,8.442-.425l4.977,4.977a2.974,2.974,0,0,1-4.206,0l-2.8-2.8a2.8,2.8,0,0,0-3.506-.424,2.727,2.727,0,0,0-.422,4.2L30.7,33.565A2.974,2.974,0,0,1,30.7,37.771Z" transform="translate(5.935 5.68)" fill="#006fcc"/>
+    <path id="패스_136" data-name="패스 136" d="M39.843,44.54a5.678,5.678,0,0,1-4.028-1.666L30.837,37.9a2.974,2.974,0,0,1,4.206,0l2.8,2.8a2.792,2.792,0,0,0,3.5.42,2.729,2.729,0,0,0,.421-4.2l-2.875-2.875a2.973,2.973,0,0,1,0-4.206l4.8,4.8a5.889,5.889,0,0,1,.052,8.348,5.68,5.68,0,0,1-3.907,1.549" transform="translate(7.592 7.346)" fill="#ff2929"/>
+    <rect id="사각형_193" data-name="사각형 193" width="41.861" height="3.739" transform="translate(10.139 19.296)" fill="#fc9900"/>
+    <path id="패스_137" data-name="패스 137" d="M7.9,5.607V9.139l42.166.006-.012,8.771-.006,3.739-.01,7A3.537,3.537,0,0,0,53.569,32.2l.017-10.544,0-3.154.02-12.886Z" transform="translate(1.946 1.38)" fill="#ff2929"/>
+  </g>
+</svg>
