@@ -61,7 +61,7 @@
 		/*	white-space: normal;*/
 		/*}*/
 		.dashbd-t .dashbd-t-footer {
-			flex: 0 0 166px;
+			flex: 0 0 150px;
 			position: unset;
 			top: 0;
 			right: 0;

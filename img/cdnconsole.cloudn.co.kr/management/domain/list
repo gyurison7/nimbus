@@ -1,0 +1,1411 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- metadata -->
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/images/lgDomain/favicon.ico" />
+<title>LG U+ CDN Management Portal</title>
+
+<!-- jquery -->
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<!-- moment -->
+<script src="/js/plugins/moment/moment.min.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+
+<!-- Serialize object or json -->
+<script src="/js/jquery.serializeObject.min.js" type="text/javascript"></script>
+
+<!-- custom util scripts -->
+<script src="/js/ajax.js"></script>
+<script>
+	function getCsrf() {
+		return "cbb7b36b-07f1-4bfe-9fd7-b9787c2248ef";
+	}
+</script>
+
+    <link href="/css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
+    <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <!-- common css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<link href="/css/animate.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+
+    
+    <style>
+
+        #service-group-set-modal .modal-dialog {
+            max-width: 680px;
+        }
+
+        #service-group-set-modal .modal-content {
+            width: 100%;
+        }
+
+        #service-group-set-modal .modal-body {
+            width: 100%;
+            height: 700px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        #service-group-set-modal .modal-footer {
+            width: 100%;
+            height: 80px;
+        }
+
+        #domain-wrapper {
+            margin-bottom: 40px;
+        }
+
+        #domain-name, #path-list-box {
+            height: 50%;
+            padding: 5px;
+        }
+
+        #domain-name > div, #path-list-box > div {
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        #domain-name-title-box, #path-title-box {
+            width: 20%;
+        }
+
+        #domain-name-contents-box, #path-contents-box {
+            width: 79%;
+        }
+
+        #path-list-box {
+            padding-right: 0;
+        }
+
+        #domain-name-title-box {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #domain-name-contents-box {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        #path-list {
+            width: 100%;
+            height: 24px !important;
+        }
+
+        #service-group-set-modal .hr-line-dashed {
+            margin: 5px 0;
+            border-top-color: #4D4D4D !important;
+            border-style: dotted !important;
+        }
+
+        #setting-box-wrapper {
+            height: 520px;
+        }
+
+        #setting-box {
+            height: 100%;
+        }
+
+        #button-box-wrapper {
+            height: 100%;
+        }
+
+        #left-box, #right-box {
+            width: 42.5%;
+            height: 100%;
+            float: left;
+            box-shadow: 5px 10px 10px grey;
+        }
+
+        #center-box {
+            width: 15%;
+            height: 100%;
+            float: left;
+        }
+
+        #left-title-box, #right-title-box {
+            width: 100.5%;
+            height: 10%;
+            text-align: center;
+            font-size: 20px;
+            display: table;
+            background-color: #4D4D4D;
+            color: #ffffff;
+            border-radius: 2px;
+            border: 1px solid #4D4D4D;
+        }
+
+        #left-title-box > span, #right-title-box > span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #left-contents-box, #right-contents-box {
+            width: 100%;
+            height: 90%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 1px solid #9b9b9b;
+            border-radius: 2px;
+        }
+
+        #center-box div {
+            width: 100%;
+            height: 33%;
+        }
+
+        #center-inner-middle {
+            position: relative;
+        }
+
+        #move-btn-box {
+            width: 42px !important;
+            height: 96px !important;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -48px;
+            margin-left: -21px;
+        }
+
+        .move-btn {
+            font-size: 3rem;
+        }
+
+        .service-group-name {
+            height: 38.5px;
+            position: relative;
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        .service-group-div-color-change {
+            background-color: #ffffff;
+        }
+
+        .service-group-label-wrapper {
+            display: inline-block;
+            width: 160px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            margin-left: 5px;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        .service-group-name span {
+            vertical-align: middle;
+        }
+
+        .chkBoxSpot {
+            font-size: 15px;
+            margin-right: 5px;
+        }
+
+        .chkBoxSpot::before {
+            content: "\f10c";
+            font-family: "FontAwesome";
+            color: #b9b9b9;
+        }
+
+        .service-group-name input:checked ~ .chkBoxSpot::before {
+            content: "\f192";
+            font-family: "FontAwesome";
+            font-weight: bold;
+            color: #4D4D4D;
+        }
+
+        #button-box-wrapper {
+            position: relative;
+            width: 100%;
+            margin: 0;
+        }
+
+        #button-box {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -59px;
+            margin-top: -20.5px;
+        }
+
+        #button-box button {
+            margin: 4px;
+        }
+
+        .tooltip {
+            z-index: 100000000;
+        }
+
+        .contents-sort-box {
+            height: 45px;
+            position: relative;
+        }
+
+        .sort-label-box {
+            color: #ffffff;
+            background-color: #b9b9b9;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 11px;
+            box-shadow: 0 3px 5px grey;
+        }
+
+        .sort-label-box-activated {
+            color: #4d4d4d;
+            font-weight: 600;
+        }
+
+        .service-group-in-use {
+            font-size: 10px;
+            background-color: #5cb85c;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .service-group-stopped {
+            font-size: 10px;
+            background-color: #b9b9b9;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .table-responsive {
+            overflow: inherit;
+        }
+
+        .dropdown-menu {
+            margin: 0 !important;
+        }
+
+        .tooltip-inner {
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .table > tbody > tr > td {
+            vertical-align: middle;
+        }
+
+    </style>
+
+</head>
+
+<body class="">
+<div id="wrapper">
+
+    <!-- left menu -->
+    
+
+
+
+
+
+<!-- side-menu //-->
+
+
+
+<style>
+	.logo-element span {
+		background-image:url("/images/lgDomain/header-logo.png");
+	}
+	body.mini-navbar .logo-element span {
+		background-image:url("/images/lgDomain/header-logo-mini.png");
+	}
+</style>
+
+<nav class="navbar-default navbar-static-side" role="navigation" style="z-index: 2052";>
+	<div class="sidebar-collapse">
+		<ul class="nav metismenu" id="side-menu">
+			<li class="nav-header">
+				<div class="logo-element"><span>CDN Management Portal</span></div>
+			</li>
+			
+				<li class="">
+					<a href="/dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">대시보드 </span></a>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">통계 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/statistics/traffic">트래픽</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/transfer">전송량</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/contents/contents">컨텐츠 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/access/request">접속 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/statistics/storage_stat">스토리지 사용량</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">오리진 통계 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/origin-statistics/traffic">트래픽</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/origin-statistics/transfer">전송량</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/origin-statistics/access/request">접속 정보</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="active">
+					<a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">관리 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/management/purge">퍼지</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/preload">프리로드</a>
+							</li>
+						
+						
+							<li class="active">
+								<a href="/management/domain/list">도메인 관리</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/domain-detail-info">도메인 세부 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/management/account/list">서브 계정 관리</a>
+							</li>
+						
+						
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-globe"></i> <span class="nav-label">GTM 관리 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/gtm/info/wide-ip/list">GTM 정보</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/gtm/statistics/wide-ip">GTM 통계</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li class="">
+					<a href="#"><i class="fa fa-television"></i> <span class="nav-label">서버 모니터링 </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						
+							<li class="">
+								<a href="/monitoring/server-alert">서버 알림</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/monitoring/server-alert-history">알림 이력</a>
+							</li>
+						
+						
+							<li class="">
+								<a href="/monitoring/server-mgmt">서버 관리</a>
+							</li>
+						
+					</ul>
+				</li>
+			
+
+			
+				<li>
+					<a href="https://docs.cloudn.co.kr" target="_blank"><i class="fa fa-external-link"></i> <span class="nav-label">사용자 가이드 바로가기 </span></a>
+				</li>
+			
+
+		</ul>
+	</div>
+</nav>
+<!--// side-menu -->
+
+    <!-- page-wrapper //-->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- header -->
+        
+
+
+
+
+
+
+
+<script>
+
+	function getCookie(cName){
+		cName = cName + '=';
+		var cookieData = document.cookie;
+		var start = cookieData.indexOf(cName);
+		var cValue = '';
+		if(start != -1){
+			start += cName.length;
+			var end = cookieData.indexOf(';', start);
+			if(end == -1)end = cookieData.length;
+			cValue = cookieData.substring(start, end);
+		}
+		return unescape(cValue);
+	}
+
+	$(document).ready(function(){
+		var $noticeModal;
+
+		var notice_hide_cookie = getCookie("notice_hide");
+		/*if((notice_hide_cookie === undefined || notice_hide_cookie === "") && ""!=="true"){*/
+		if((notice_hide_cookie === undefined || notice_hide_cookie === "")){
+
+			if("true"==="false"){
+				callPortal('/api/notice/get', null, getCsrf(), function(data) {
+					var notice = data.notice;
+					if(notice != null && notice !== ""){
+						$("#noticeModal").append(data.notice);
+						$noticeModal = $("#noticeModal");
+						$noticeModal.modal("show");
+					}
+				});
+			}
+		}
+
+		$(document).on("click", "#noticeCheck", function () {
+			var checked = this.checked;
+			if(checked){
+				var today = new Date();
+				today.setHours( today.getHours() + 23-today.getHours() );
+				today.setMinutes(today.getMinutes() + 60-today.getMinutes());
+				document.cookie = 'notice_hide' + '=' + checked + ';expires=' + today.toUTCString() + ';path=/';
+				$noticeModal.modal("hide");
+			}
+		});
+	});
+</script>
+<style>
+	
+	.error {
+		color: red;
+	}
+</style>
+
+<!--notice modal-->
+<div id="noticeModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+</div>
+
+<!-- border-bottom //-->
+<div class="row border-bottom">
+	<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom:0">
+		<div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i></a></div>
+		<ul class="nav navbar-top-links navbar-right">
+			<div class="row" style="width:330px">
+				<li class="dropdown col-sm-7">
+					<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> static&#95;test</a>
+					<form role="form" id="formLogout" method="POST">
+						<ul class="dropdown-menu dropdown-alerts">
+							<li><a href="/account/detail" class="dropdown-item"><div><i class="fa fa-address-book fa-fw"></i> 계정정보</div></a></li>
+							<li class="dropdown-divider"></li>
+							<li id="logout"><a href="#" class="dropdown-item"><div><i class="fa fa-power-off fa-fw"></i> 로그아웃</div></a></li>
+						</ul>
+						<input type="hidden" name="_csrf" value="cbb7b36b-07f1-4bfe-9fd7-b9787c2248ef"/>
+					</form>
+				</li>
+				<form class="col-sm-5" id="formLangSelect" method="GET" style="margin: auto;">
+					<select class="form-control" id="lang-select" name="lang">
+					</select>
+				</form>
+			</div>
+		</ul>
+	</nav>
+</div>
+<!--// border-bottom -->
+<script>
+	// Spring Message Init
+	var msgSelectAll='전체';
+	var msgPlaceHolder='검색어를 입력하세요';
+	var msgNonSelected='선택';
+	var msgNSelected='개 선택됨';
+	var msgAllSelected='전체 선택됨';
+
+	var msgEmptyTable='데이터가 존재하지 않습니다.';
+	var msgInfo='_START_ ~ _END_ / 총 _TOTAL_ 개';
+	var msgLengthMenu='보기 설정 _MENU_ 개';
+	var msgSearch='검색';
+	var msgZeroRecords='검색 결과를 찾을 수 없습니다.';
+
+	var msgInfoExcept='외';
+	var msgInfoDomains='개 도메인';
+
+	$(document).ready(function() {
+		var chkSession_custID = '8';
+
+		if (chkSession_custID == '') {
+			$('#logout').click();
+		}
+
+		$('#logout').on('click', function() {
+			$('#formLogout').attr('action','/logout');
+			$('#formLogout').submit();
+		});
+
+		var  languages = [
+			"<option value='ko'>한국어</option>",
+			"<option value='en'>English</option>"
+		];
+		$('#lang-select').html(languages);
+		$('#lang-select').val("ko");
+
+		$('#lang-select').on('change', function(){
+			$.get("/management/account/sitelang/" + $(this).val() ,function() {}); // 이 라인 삭제하면 언어 변경 시 관련 버그 생김. ex) 메뉴권한정보 페이지
+
+			$('#formLangSelect').attr('action', window.location.toString());
+			$('#formLangSelect').submit();
+		});
+
+		// Minimalize menu
+		$('.navbar-minimalize').on('click', function (event) {
+			event.preventDefault();
+			$("body").toggleClass("mini-navbar");
+
+			callPortalGet('/api/session/menu/update', getCsrf());
+
+			SmoothlyMenu();
+		});
+
+		// Close menu in canvas mode
+		$('.close-canvas-menu').on('click', function (e) {
+			e.preventDefault();
+			$("body").toggleClass("mini-navbar");
+			SmoothlyMenu();
+		});
+
+		function SmoothlyMenu() {
+			if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
+				// Hide menu in order to smoothly turn on when maximize menu
+				$('#side-menu').hide();
+				// For smoothly turn on menu
+				setTimeout(
+						function () {
+							$('#side-menu').fadeIn(400);
+						}, 200);
+			} else if ($('body').hasClass('fixed-sidebar')) {
+				$('#side-menu').hide();
+				setTimeout(
+						function () {
+							$('#side-menu').fadeIn(400);
+						}, 100);
+			} else {
+				// Remove all inline style from jquery fadeIn function to reset menu state
+				$('#side-menu').removeAttr('style');
+			}
+		}
+	});
+</script>
+
+
+        <!-- page-heading //-->
+        <div class="row wrapper border-bottom white-bg page-heading" id="heading" data-tab="management/domain">
+            <div class="col-lg-10">
+                <h2>도메인 목록</h2>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="/management/purge">관리</a></li>
+                    <li class="breadcrumb-item"><a href="/management/domain/list">도메인 관리</a></li>
+                    <li class="breadcrumb-item active"><strong>도메인 목록</strong></li>
+                </ol>
+            </div>
+        </div>
+        <!--// page-heading -->
+
+        <!-- wrapper-content //-->
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <!-- 상단 탭 -->
+                
+
+
+<div class="col-lg-12">
+	<ul class="sub-tabs">
+		<li class="tab-active"><a href="/management/domain/list">도메인 목록</a></li>
+		<li class=""><a href="/management/domain/service-group/list">서비스 그룹 설정</a></li>
+	</ul>
+</div><!--//col-lg-12-->
+
+                <div class="col-lg-12 m-b">
+                    <div class="row">
+                        
+                            
+                            
+                                <div class="col-lg-12"><h5>* CDN 도메인 기능은 고객이 서비스하고자 하는 도메인을 등록하고, 정보 및 상태 변경, 조회 및 퍼지, 프리로드 기능들을 제공합니다.</h5></div>
+                            
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <form id="formSearch" onsubmit="return false;">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-3"><label class="col-form-label">서비스 그룹</label></div>
+                                                <div class="col-lg-9">
+                                                    <select name="tagSeq" id="selTagSeq" class="form-control">
+                                                        <option value="" selected>선택하세요</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-3"><label class="col-form-label">상태</label></div>
+                                                <div class="col-lg-9">
+                                                    <select name="status" id="selStatus" class="form-control">
+                                                        <option value="0" selected>선택하세요</option>
+                                                        
+                                                            <option value="100">실행중</option>
+                                                        
+                                                            <option value="200">정지됨</option>
+                                                        
+                                                            <option value="300">삭제됨</option>
+                                                        
+                                                            <option value="400">등록 실패</option>
+                                                        
+                                                            <option value="500">설치중</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-3"><label class="col-form-label">보기 설정</label></div>
+                                                <div class="col-lg-9">
+                                                    <select name="domainsPerPage" id="domainsPerPage"
+                                                            class="form-control">
+                                                        <option value="10" selected>10개</option>
+                                                        <option value="50">50개</option>
+                                                        <option value="100">100개</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-group"><input type="text" class="form-control" name="searchKey" placeholder='검색어를 입력하세요'>
+                                            <span class="input-group-append"> <button type="button" id="btnSearch" class="btn btn-black">조회</button> </span></div>
+                                        <!--//input-group-->
+                                    </div>
+                                </div>
+                            </form><!--//formSearch-->
+                        </div><!--//ibox-content-->
+                    </div><!--//ibox-->
+                </div><!--//col-lg-12-->
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+
+                                </div><!--//table-responsive-->
+                            </div>
+                        </div><!--//ibox-content-->
+                    </div><!--//ibox-->
+                </div><!--//col-lg-12-->
+            </div><!--// wrapper-content -->
+        </div>
+
+        <!-- footer -->
+        
+
+<div class="footer">
+	<div class="float-right btn-xs">※ 본 사이트는 해상도 가로 1280px 이상을 권장하며, 사파리(Mac OS) / Chrome / IE11 이상의 최신 브라우저에 최적화되어 있습니다.</div>
+</div>
+
+
+
+
+
+<div class="wrap-loading display-none" style="z-index: 2051;"> <!-- modal z-index : 2050 -->
+	<div>
+		<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+	</div>
+</div>
+<!-- custom util scripts -->
+<script language="JavaScript" src="/js/common_util.js" charset="UTF-8"></script>
+    </div>
+    <!--// page-wrapper -->
+</div><!--// wrapper -->
+
+
+<div class="modal inmodal fade" id="service-group-set-modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content animated fadeIn">
+            <div class="modal-header" style="padding: 15px !important;">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">서비스 그룹 설정</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div id='button-box-wrapper'>
+                    <div id="button-box">
+                        <button type="button" id='okBtn' class="btn btn-red">적용</button>
+                        <button type="button" id='cancelBtn' class="btn btn-black">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<template id='tmpl'>
+    <div id='domain-wrapper'>
+        <div id="domain-name">
+            <div id="domain-name-title-box">
+                <strong><i class="fa fa-chain"></i><span> Domain</span></strong>
+            </div>
+            <div id="domain-name-contents-box">
+                <strong><span id="domain-name-label"></span></strong>
+            </div>
+        </div>
+        <input type="hidden" id="domain-seq">
+        <div class="hr-line-dashed"></div>
+        <div id='path-list-box'>
+            <div id="path-title-box">
+                <strong><i class="fa fa-map-marker" style="width: 13.94px;"></i><span> Path</span></strong>
+            </div>
+            <div id="path-contents-box">
+                <select id="path-list"></select>
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+    </div>
+    <div id='setting-box-wrapper'>
+        <div id='setting-box'>
+            <div id='left-box'>
+                <div id='left-title-box'>
+                    <span>현재 서비스 그룹</span>
+                </div>
+                <div id='left-contents-box' class='contents-box'>
+                    <div class='contents-sort-box'>
+                        <span class="sort-label-box left-contents-sort-label-box">
+                            <span class="sort-label left-contents-sort-label">정렬 </span><span class="sort-icon left-contents-sort-icon glyphicon glyphicon-sort"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id='center-box'>
+                <div id='center-inner-top'></div>
+                <div id='center-inner-middle'>
+                    <div id="move-btn-box">
+                        <i class="fa fa-chevron-circle-left move-btn" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-circle-right move-btn" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div id='center-inner-bottom'></div>
+            </div>
+            <div id='right-box'>
+                <div id='right-title-box'>
+                    <span>추가 가능한 서비스 그룹</span>
+                </div>
+                <div id='right-contents-box' class='contents-box'>
+                    <div class='contents-sort-box'>
+                        <span class="sort-label-box right-contents-sort-label-box">
+                            <span class="sort-label right-contents-sort-label">정렬 </span><span class="sort-icon right-contents-sort-icon glyphicon glyphicon-sort"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<!-- common js -->
+
+
+<!-- Mainly scripts -->
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- sub js -->
+
+
+<!-- Custom and plugin javascript -->
+<script src="/js/inspinia.js"></script>
+<script src="/js/plugins/pace/pace.min.js"></script>
+
+<!-- Toastr -->
+<script src="/js/plugins/toastr/toastr.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+	});
+</script>
+
+<!-- Chosen -->
+<script src="/js/plugins/chosen/chosen.jquery.js"></script>
+
+<!-- FooTable -->
+<script src="/js/plugins/footable/footable.all.min.js"></script>
+
+<!-- Serialize object or json -->
+<script src="/js/jquery.serializeObject.min.js" type="text/javascript"></script>
+
+<!-- Page-Level Scripts -->
+<script>
+
+    var previousServiceGroup = [];
+
+    $(document).ready(function () {
+        initTable();
+
+        $('#btnSearch').on('click', function () {
+            initTable();
+        });
+
+        $('input[name=searchKey]').on('keydown', function (event) {
+            if (event.keyCode == 13) {
+                initTable();
+            }
+        });
+
+        // 조건 선택 chosen
+        $('#selTagSeq').chosen({width: "100%", search_contains:"true"});
+        $('#domainsPerPage').chosen({ width: '100%', disable_search: "true" });
+        $('#selStatus').chosen({ width: '100%', disable_search: "true" });
+
+        // tooltip 활성화는 최초 1번만 하면 됨
+        $('body').tooltip({
+            selector: '[data-toggle=tooltip]',
+            container: 'body'
+        });
+
+        /* 도메인 목록에서 서비스 그룹 dropdown 버튼 클릭 시, 해당 도메인의 path 별 서비스 그룹 리스트 show */
+        $(document).on('click', '.dropdown-group-btn', function (e) {
+
+            var dropdownBtn = $(this);
+            var ul = dropdownBtn.next('ul');
+
+            // make dropdown manually
+            if (ul.attr('aria-expanded') == undefined || ul.attr('aria-expanded') == 'false') {
+                ul.attr('aria-expanded', true);
+            } else {
+                ul.attr('aria-expanded', false).css('display', 'none');
+                dropdownBtn.closest('.dropdown').removeClass('dropup');
+                return;
+            }
+
+            var dropdown_bottom = dropdownBtn.offset().top + dropdownBtn.outerHeight(true) + ul.outerHeight(true);
+            var $window = $(window);
+            var screen_bottom = $window.height() + $window.scrollTop();
+            var document_height = $(document).height();
+            var footer_top = document_height - 43.38; // 43.38 : footer height
+
+            ul.css('maxHeight', dropdownBtn.offset().top - 3);
+
+            if (screen_bottom < footer_top) {
+                if (screen_bottom <= dropdown_bottom) {
+                    dropdownBtn.closest('.dropdown').addClass('dropup');
+                }
+            } else {
+                if (footer_top <= dropdown_bottom) {
+                    dropdownBtn.closest('.dropdown').addClass('dropup');
+                }
+            }
+            ul.css('display', 'block'); // 이 코드가 tooltip 보다 먼저 나와야 criteriaWidth 제대로 찍힘
+
+            // dropdown 내 tooltip 생성
+            var obj = ul.find('.tooltip-in-dropdown');
+            obj.tooltip('dispose'); // dispose 안하면 dropdown 닫고 재클릭 시, css 적용되지 않은 tooltip이 하단에 중복으로 생김
+            var criteriaWidth = ul.find('li:nth-child(1)').width();
+
+            for (var i = 0; i < obj.length; i++) {
+                // if (obj[i].offsetWidth < obj[i].scrollWidth) { // 이 조건은 offsetWidth == scrollWidth 일 때 안 먹힘. 아래 코드로 수정
+                //     $(obj[i]).attr({
+                //         'data-toggle': 'tooltip',
+                //         'data-placement': 'top',
+                //         'title': obj[i].innerText
+                //     }).css('cursor', 'pointer');
+                // }
+
+                var element = $(obj[i])
+                    .clone()
+                    .css({
+                        display: 'inline',
+                        width: 'auto',
+                        fontSize: 12,
+                        visibility: 'hidden'
+                    }) // body 에 append 하면 font-size 상속받아 13px로 되므로 font-size 수정
+                    .appendTo('body');
+
+                if (element.outerWidth() > criteriaWidth) {
+                    $(obj[i]).attr({
+                        'data-toggle': 'tooltip',
+                        'data-placement': 'top',
+                        'title': obj[i].innerText
+                    }).css('cursor', 'pointer');
+                }
+                element.remove();
+            }
+            obj.tooltip();
+            dropdownBtn.unbind('click'); // 꼭 필요한가?
+        });
+
+        // close service group dropdown when clicking other area
+        $('body').on('click', function (e) {
+            var $dropdowns = $('.dropdown-group');
+            var $notActivatedDropdowns = $dropdowns.not($dropdowns.has(e.target)); // 클릭한 dropdown 이 아닌 dropdown 들은 모두 close
+            $notActivatedDropdowns.find('.dropdown-menu').attr('aria-expanded', false).css('display', 'none');
+            $notActivatedDropdowns.removeClass('dropup');
+        });
+
+        $(window).on('scroll resize', function () {
+            var activatedDropdown = $('.dropdown-group-btn ~ .dropdown-menu:visible');
+            if (activatedDropdown.length == 0) {
+                return;
+            }
+
+            var dropdownBtn = activatedDropdown.prev();
+            var dropdown_bottom = dropdownBtn.offset().top + dropdownBtn.outerHeight(true) + activatedDropdown.outerHeight(true);
+            var $window = $(window);
+            var screen_bottom = $window.height() + $window.scrollTop();
+            var document_height = $(document).height();
+            var footer_top = document_height - 43.38; // 43.38 : footer height
+
+            if (screen_bottom < footer_top) {
+                if (screen_bottom <= dropdown_bottom) {
+                    if (!activatedDropdown.closest('.dropdown').hasClass('dropup')) {
+                        activatedDropdown.closest('.dropdown').addClass('dropup');
+                    }
+                } else {
+                    if (activatedDropdown.closest('.dropdown').hasClass('dropup')) {
+                        activatedDropdown.closest('.dropdown').removeClass('dropup');
+                    }
+                }
+            } else {
+                if (footer_top <= dropdown_bottom) {
+                    if (!activatedDropdown.closest('.dropdown').hasClass('dropup')) {
+                        activatedDropdown.closest('.dropdown').addClass('dropup');
+                    }
+                } else {
+                    if (activatedDropdown.closest('.dropdown').hasClass('dropup')) {
+                        activatedDropdown.closest('.dropdown').removeClass('dropup');
+                    }
+                }
+            }
+        });
+
+        /* 도메인 목록에서 서비스 그룹 설정 버튼 클릭 시 model show */
+        $(document).on('click', '.set-service-group-btn', function () {
+            var domainSeq = $(this).attr('data-domain-seq');
+            var domainName = $(this).attr('data-domain-name');
+            var pathSeqList = JSON.parse($(this).attr('data-path-seq-list'));
+            var pathNameList = JSON.parse($(this).attr('data-path-name-list'));
+
+            $('#service-group-set-modal .modal-body').empty();
+            $('#service-group-set-modal .modal-body').append($('#tmpl').html());
+            var modalBody = $('#service-group-set-modal .modal-body');
+            $(modalBody).find('input#domain-seq').val(domainSeq);
+            $(modalBody).find('#domain-name-label').html(domainName);
+
+            for (var i = 0; i < pathSeqList.length; i++) {
+                $(modalBody).find('#path-list').append('<option value=' + pathSeqList[i] + '>' + pathNameList[i] + '</option>');
+            }
+
+            var reqData = {
+                encryptedDomainSeq: domainSeq,
+                domainPathStatSeq: $(modalBody).find('#path-list').val()
+            };
+
+            serviceGroupListForPath(reqData, true);
+
+        });
+        /* end */
+
+        /* 서비스 그룹 추가 */
+        $(document).on('click', '.fa-chevron-circle-left', function () {
+            var checkedOnes = $('#right-contents-box input[type=checkbox]:checked');
+            if (checkedOnes.length == 0) {
+                alert('추가할 서비스 그룹을 선택해주세요.');
+                return;
+            }
+
+            $(checkedOnes).each(function () {
+                $(this).prop('checked', false);
+                $(this).closest('div.service-group-name').toggleClass('service-group-div-color-change');
+                $('#left-contents-box').append($(this).closest('div'));
+            })
+        });
+        /* end */
+
+        /* 서비스 그룹 삭제 */
+        $(document).on('click', '.fa-chevron-circle-right', function () {
+            var checkedOnes = $('#left-contents-box input[type=checkbox]:checked');
+            if (checkedOnes.length == 0) {
+                alert('삭제할 서비스 그룹을 선택해주세요.');
+                return;
+            }
+
+            $(checkedOnes).each(function () {
+                $(this).prop('checked', false);
+                $(this).closest('div.service-group-name').toggleClass('service-group-div-color-change');
+                $('#right-contents-box').append($(this).closest('div'));
+            })
+        });
+        /* end */
+
+        /* select box path 변경 시 modal 화면 update */
+        $(document).on('change', '#path-list', function () {
+            var reqData = {
+                encryptedDomainSeq: $('input#domain-seq').val(),
+                domainPathStatSeq: $(this).val()
+            };
+
+            serviceGroupListForPath(reqData, false);
+        });
+        /* end */
+
+        /* 서비스 그룹 수정 후 적용 버튼 클릭 */
+        $(document).on('click', '#okBtn', function () {
+            if ($('#left-contents-box input[type=checkbox]').length == 0 && $('#right-contents-box input[type=checkbox]').length == 0) {
+                alert('등록된 서비스 그룹이 없습니다.');
+                return;
+            }
+
+            var updatedServiceGroup = [];
+            $('#left-contents-box input[type=checkbox]').each(function () {
+                updatedServiceGroup.push($(this).val());
+            })
+
+            var reqData = {
+                encryptedDomainSeq: $('input#domain-seq').val(),
+                domainPathStatSeq: $('#path-list').val(),
+                updatedServiceGroup: updatedServiceGroup,
+                previousServiceGroup: previousServiceGroup
+            }
+
+            callPortal('/api/management/domain/service-group/set-for-path', reqData, getCsrf(), function (res) {
+
+                if (res.api_response.result_code != 200) {
+                    if (res.api_response.result_code == 'D400') {
+                        alert('변경된 내용이 없습니다.');
+                        return;
+                    }
+                    alert("Error Code : " + res.api_response.result_code + "\nError Message : " + res.api_response.result_msg);
+                    return;
+                } else {
+                    alert('서비스 그룹을 업데이트 했습니다.');
+                    /*serviceGroupListForPath(reqData, false); // reqData 에 updatedServiceGroup, previousServiceGroup 포함 되어도 상관 없음. request 보낼 때 안 쓰이니까..*/
+                    // previousServiceGroup = reqData.updatedServiceGroup; // 페이지 refresh 하는걸로 logic 바꾸면 이 코드는 필요없음
+                    location.href = '/management/domain/list';
+                }
+            });
+
+        });
+        /* end */
+
+        /* modal close */
+        $(document).on('click', '#cancelBtn', function () {
+            $('#service-group-set-modal').modal('hide');
+        });
+        /* end */
+
+        /* 서비스 그룹 클릭 시 체크 박스 checked 및 배경색 변경 */
+        $(document).on('click', '.service-group-name', function () {
+            var chkbox = $(this).find('input[type=checkbox]');
+            chkbox.prop('checked', !chkbox.prop('checked'));
+            $(this).toggleClass('service-group-div-color-change');
+        });
+        /* end */
+
+        /* 서비스 그룹 정렬 */
+        $(document).on('click', '.sort-label-box', function () {
+            var sortIcon = $(this).find('span.sort-icon');
+            var arr = $(this).closest('div.contents-sort-box').siblings();
+            var sortedArr;
+
+            if (sortIcon.hasClass('glyphicon-sort')) { // default 상태라면 -> 오름차순
+                $(this).addClass('sort-label-box-activated');
+                sortIcon.removeClass('glyphicon-sort').addClass('glyphicon-sort-by-alphabet');
+                sortedArr = sortArr(arr, 'asc');
+            } else if (sortIcon.hasClass('glyphicon-sort-by-alphabet')) { // 기존에 오름차순으로 되어있다면 -> 내림차순
+                sortIcon.removeClass('glyphicon-sort-by-alphabet').addClass('glyphicon-sort-by-alphabet-alt');
+                sortedArr = sortArr(arr, 'desc');
+            } else if (sortIcon.hasClass('glyphicon-sort-by-alphabet-alt')) { // 기존에 내림차순으로 되어있다면 -> 오름차순
+                sortIcon.removeClass('glyphicon-sort-by-alphabet-alt').addClass('glyphicon-sort-by-alphabet');
+                sortedArr = sortArr(arr, 'asc');
+            }
+
+            var contentsBox = $(this).closest('.contents-box');
+            contentsBox.find('div:not(.contents-sort-box)').remove();
+            $.each(sortedArr, function (index, item) {
+                contentsBox.append(item);
+            });
+        });
+        /* end */
+
+    });
+
+    function initTable() {
+        $('div.table-responsive').html("");
+        $('div.table-responsive').append('<table class="footable table table-stripped toggle-arrow-tiny"><thead></thead><tbody>' +
+            '</tbody><tfoot><tr><td colspan="8" class="footable-visible"><ul class="pagination"></ul></td></tr></tfoot></table>');
+
+        callPortal('/api/management/domain/list', $('#formSearch').serializeObject(), getCsrf(), function (res) {
+            if (res.success) {
+                var json = JSON.parse(res.data);
+                $('table thead').append(json.tableHead);
+                $('table tbody').append(json.tableBody);
+                $('table').data('page-size', $('#domainsPerPage').val());
+                $('table').data('limit-navigation', 10);
+
+                $('.footable').footable({
+                    "paging": {
+                        "enabled": true
+                    }
+                });
+
+                // service group label tooltip in domain list
+                var serviceGroupLabel = $('.tooltip-in-service-group-label');
+
+                for (var i = 0; i < serviceGroupLabel.length; i++) {
+                    var element = $(serviceGroupLabel[i])
+                        .clone()
+                        .css({
+                            display: 'inline',
+                            width: 'auto',
+                            visibility: 'hidden'
+                        })
+                        .appendTo('body');
+                    if (element.outerWidth() > 200) { // .tooltip-in-service-group-label 의 max-width: 200px;
+                        $(serviceGroupLabel[i]).attr({
+                            'data-toggle': 'tooltip',
+                            'data-placement': 'top',
+                            'title': serviceGroupLabel[i].innerText.split(',').join(',<br>'),
+                            'data-html': 'true'
+                        }).css('cursor', 'pointer');
+                    }
+                    element.remove();
+                }
+            }
+        });
+    }
+
+    function serviceGroupListForPath(reqData, initModal) {
+
+        callPortal('/api/management/domain/service-group/list-for-path', reqData, getCsrf(), function (res) {
+
+            if (res.api_response.result_code != 200) {
+                alert("Error Code : " + res.api_response.result_code + "\nError Message : " + res.api_response.result_msg);
+                return;
+            }
+
+            var current_service_group = res.api_response.data.service_group_info.current_service_group;
+            var addable_service_group = res.api_response.data.service_group_info.addable_service_group;
+
+            $('.contents-box').find('div:not(.contents-sort-box)').remove();
+            $('.sort-label-box').removeClass('sort-label-box-activated');
+            $('span.sort-icon').removeClass('glyphicon-sort-by-alphabet glyphicon-sort-by-alphabet-alt').addClass('glyphicon-sort');
+            previousServiceGroup = []; // modal 갱신할 때마다 previousServiceGroup(수정 전 현재 서비스 그룹 리스트)도 갱신
+
+            var inUse = '<span class="service-group-in-use">사용중</span>';
+            var stopped = '<span class="service-group-stopped">정지됨</span>';
+
+            if (current_service_group.length > 0) {
+                for (var i = 0; i < current_service_group.length; i++) {
+                    var status = current_service_group[i].use_yn == 'Y' ? inUse : stopped;
+                    var serviceGroup = '<div class="service-group-name service-group-name-left"><input type="checkbox" value="' + current_service_group[i].tag_seq + '" id="SERVICE GROUP LEFT' + i + '"><span class="chkBoxSpot"></span>' + status + '<span class="service-group-label-wrapper">' + current_service_group[i].tag_name + '</span></div>';
+                    $('#left-contents-box').append(serviceGroup);
+                    previousServiceGroup.push(current_service_group[i].tag_seq);
+                }
+            }
+
+            if (addable_service_group.length > 0) {
+                for (var i = 0; i < addable_service_group.length; i++) {
+                    var status = addable_service_group[i].use_yn == 'Y' ? inUse : stopped;
+                    var serviceGroup = '<div class="service-group-name service-group-name-right"><input type="checkbox" value="' + addable_service_group[i].tag_seq + '" id="SERVICE GROUP RIGHT' + i + '"><span class="chkBoxSpot"></span>' + status + '<span class="service-group-label-wrapper">' + addable_service_group[i].tag_name + '</span></div>';
+                    $('#right-contents-box').append(serviceGroup);
+                }
+            }
+
+            if (initModal) {
+                $('#service-group-set-modal').modal('show');
+            }
+
+            activateTooltip(initModal);
+
+        });
+
+    }
+
+    function activateTooltip(initModal) {
+
+        if (initModal) {
+            // 이렇게 하면 selectbox 로 path 변경 후에는 tooltip 동작 안함
+            // $('.service-group-label-wrapper[data-toggle="tooltip"]').tooltip({
+            // 	container : 'body'
+            // });
+
+            // 최초 modal show 할 때는 로딩될 때까지 기다려야 함
+            $('#service-group-set-modal').on('shown.bs.modal', function () {
+                var obj = $('.service-group-name').find('.service-group-label-wrapper');
+                for (var i = 0; i < obj.length; i++) {
+                    var element = $(obj[i])
+                        .clone()
+                        .css({display: 'inline', width: 'auto', visibility: 'hidden'})
+                        .appendTo('body');
+
+                    if (element.outerWidth() > 160) {
+                        $(obj[i]).attr({
+                            'data-toggle': 'tooltip',
+                            'data-placement': 'top',
+                            'title': obj[i].innerText
+                        }).css('cursor', 'pointer');
+                    }
+                    element.remove();
+                }
+            });
+
+        } else {
+            // select box 에서 path 변경할 때는 이미 modal 이 있는 상태
+            var obj = $('.service-group-name').find('.service-group-label-wrapper');
+            for (var i = 0; i < obj.length; i++) {
+                var element = $(obj[i])
+                    .clone()
+                    .css({display: 'inline', width: 'auto', visibility: 'hidden'})
+                    .appendTo('body');
+
+                if (element.outerWidth() > 160) {
+                    $(obj[i]).attr({
+                        'data-toggle': 'tooltip',
+                        'data-placement': 'top',
+                        'title': obj[i].innerText
+                    }).css('cursor', 'pointer');
+                }
+                element.remove();
+            }
+        }
+
+    }
+
+    function sortArr(arr, order) {
+        arr.sort(function (a, b) {
+            const upperCaseA = $(a).find('.service-group-label-wrapper').text().toUpperCase();
+            const upperCaseB = $(b).find('.service-group-label-wrapper').text().toUpperCase();
+
+            if (order == 'asc') {
+                if (upperCaseA > upperCaseB) return 1;
+                if (upperCaseA < upperCaseB) return -1;
+                if (upperCaseA === upperCaseB) return 0;
+            } else if (order == 'desc') {
+                if (upperCaseA > upperCaseB) return -1;
+                if (upperCaseA < upperCaseB) return 1;
+                if (upperCaseA === upperCaseB) return 0;
+            }
+        });
+        return arr;
+    }
+
+</script>
+</body>
+</html>

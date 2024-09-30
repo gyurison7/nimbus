@@ -44,15 +44,15 @@
   url('//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.ttf') format('truetype');
 }
 
-/*bootstrap.min.css 수정*/
-body, button, input {font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;}
+/*bootstrap.min.css ìˆ˜ì •*/
+body, button, input {font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;}
 a {color:#b4193e;}
 a:hover {color:#c0254e;}
 table td {word-break:break-all;}
 .breadcrumb-item + .breadcrumb-item::before {padding-right:0.2rem; content:">" !important;}
 input:focus {outline:0 !important;}
 
-/*bootstrap-chosen.css 수정*/
+/*bootstrap-chosen.css ìˆ˜ì •*/
 .chosen-container {font-size: 0.9rem;}
 .chosen-container .chosen-drop {border-bottom-right-radius:1px; border-bottom-left-radius:1px;}
 .chosen-container .chosen-results li.highlighted {background-color:#b4193e;}
@@ -65,10 +65,10 @@ input:focus {outline:0 !important;}
 .chosen-container-active.chosen-with-drop .chosen-single {border:1px solid #b4193e;}
 .chosen-container-active .chosen-choices {border:1px solid #b4193e;}
 
-/*datepicker3.css 수정*/
+/*datepicker3.css ìˆ˜ì •*/
 .datepicker .cw {display:none;}
 
-/*awesome-bootstrap-checkbox.css 수정*/
+/*awesome-bootstrap-checkbox.css ìˆ˜ì •*/
 .radio, .checkbox {padding-left:4px;}
 .checkbox-red input[type="checkbox"]:checked + label::before, .checkbox-red input[type="radio"]:checked + label::before {background-color:#b4193e; border-color:#b4193e;}
 .checkbox-red input[type="checkbox"]:checked + label::after, .checkbox-red input[type="radio"]:checked + label::after {color: #fff;}
@@ -78,16 +78,16 @@ input:focus {outline:0 !important;}
 
 input[type="text"], input[type="password"], input[type="mail"], input[type="search"], select {height:34px !important;}
 
-/*datatables.min.css 수정*/
+/*datatables.min.css ìˆ˜ì •*/
 div.dataTables_wrapper div.dataTables_paginate {width:100%; text-align:center;}
 div.dataTables_wrapper div.dataTables_paginate .pagination {display:inline-block;}
 div.dataTables_wrapper div.dataTables_paginate .pagination:after {content:""; display:block; clear:both;}
 div.dataTables_wrapper div.dataTables_paginate .pagination li {display:inline-block; float:left;}
 
-/*forms.scss 수정*/
+/*forms.scss ìˆ˜ì •*/
 .form-control:disabled, .form-control[readonly] {background-color:#f5f5f5;}
 
-/*tables.scss 수정*/
+/*tables.scss ìˆ˜ì •*/
 .table {margin-bottom: 0 !important;}
 .table-responsive {display:block; width:100%; overflow-x:hidden; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar;}
 .table-responsive .dataTables-wd {display:block; width:100%; overflow-x:scroll; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar;}
@@ -98,19 +98,19 @@ div.dataTables_wrapper div.dataTables_paginate .pagination li {display:inline-bl
 .table-responsive .dataTables-md td {min-width:200px;}
 }
 
-/*modal.scss 수정*/
+/*modal.scss ìˆ˜ì •*/
 .modal-footer {align-items:center; -ms-flex-pack:center; justify-content:center; text-align:center;}
 
-/*multiselect.css 수정*/
+/*multiselect.css ìˆ˜ì •*/
 #multiselect-wrap {}
 #multiselect-wrap button {border-radius:1px; border-color:#e5e6e7; height:34px; text-align:left; font-size: 0.9rem;} 
 #multiselect-wrap .multiselect-container {width:100%;}
-#multiselect-wrap label {font-size:0.9rem;margin-bottom:0;}
+#multiselect-wrap label {font-size:0.9rem; margin-bottom:0;}
 #multiselect-wrap label.checkbox {margin-left:0;}
 #multiselect-wrap .multiselect-clear-filter > .input-group {width:auto !important;}
 #multiselect-wrap .dropdown-menu {box-shadow:none; border:1px solid #b4193e; margin-top:-1px; max-height:200px; overflow:hidden; overflow-y:auto;}
-#multiselect-wrap .dropdown-menu > li > a {border-radius: 1px;color: inherit;line-height: 22px;margin: 2px;text-align: left;display: inline-block;padding: 3px 20px 0;}
-#multiselect-wrap .multiselect-container>li>a>label {padding: 0 20px 3px 0;}
+#multiselect-wrap .dropdown-menu > li > a {border-radius: 1px; color: inherit; line-height: 22px; margin: 2px; text-align: left; display: inline-block; padding: 3px 20px 0;}
+#multiselect-wrap .multiselect-container>li>a>label {padding:0 20px 3px 18px;}
 #multiselect-wrap .dropdown-menu > li > a:hover, #multiselect-wrap .dropdown-menu > li > a:focus, #multiselect-wrap .dropdown-menu > li.active a {background-color:#fff;}
 #multiselect-wrap .dropdown-menu > li label, #multiselect-wrap .dropdown-menu > li.active label {background-repeat:no-repeat; background-position:0 0; background-size:22px 22px;}
 #multiselect-wrap .dropdown-menu > li label {background-image:url('../images/check.png');}
@@ -951,21 +951,21 @@ div.dataTables_wrapper div.dataTables_paginate .pagination li {display:inline-bl
 .glyphicon-menu-up:before {
   content: "\e260";
 }
-h1, h2, h3, h4, h5, h6 {font-weight:100; font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;}
-.h1, .h2, .h3, h1, h2, h3 {margin-top: 20px; margin-bottom: 10px; font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-weight:100; font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;}
+.h1, .h2, .h3, h1, h2, h3 {margin-top: 20px; margin-bottom: 10px; font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;}
 h1 {font-size: 30px;}
 h2 {font-size: 24px;}
 h3 {font-size: 16px;}
 h4 {font-size: 14px;}
 h5 {font-size: 12px;}
 h6 {font-size: 10px;}
-h3, h4, h5 {margin-top: 5px;font-weight: 600;}
+h3, h4, h5 {margin-top: 5px; font-weight: 600;}
 .nav > li > a {
   color: #b9b9b9;
   font-weight: 600;
   padding: 14px 20px 14px 25px;
   display: block;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
 }
 .nav.metismenu > li {
   display: block;
@@ -1693,7 +1693,7 @@ button:focus {
   background-image: none;
   outline: 0;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  /* box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); */
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 .btn-primary {
   color: #b4193e;
@@ -2035,7 +2035,7 @@ fieldset[disabled] .btn-red.active {
 }
 .btn-black:active,
 .btn-black.active {
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset;
 }
 .btn-black:active,
 .btn-black.active,
@@ -2162,7 +2162,7 @@ button.dim:active:before {
 .label {
   background-color: #b9b9b9;
   color: #fff;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   font-weight: 600;
   padding: 3px 8px;
   text-shadow: none;
@@ -2177,7 +2177,7 @@ button.dim:active:before {
 .badge {
   background-color: #d1dade;
   color: #5e5e5e;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   font-size: 10px;
   font-weight: 600;
   padding: 4px 6px;
@@ -2342,9 +2342,6 @@ button.dim:active:before {
   padding: 4px 12px;
   position: relative;
   width: 100%;
-  height: 42px !important;!i;!;
-  display: flex;
-  align-items: center;
 }
 .chosen-container-multi .chosen-choices li.search-choice {
   background: #f1f1f1;
@@ -2815,7 +2812,7 @@ a.list-group-item.active:focus {
 /*  background: transparent;*/
 /*}*/
 .dataTables_wrapper {
-  padding-bottom: 30px;
+  /*padding-bottom: 30px;*/
 }
 .dataTables_length {
   float: left;
@@ -3568,7 +3565,7 @@ select.form-control:not([size]):not([multiple]) {
   width: 100%;
   font-size: 0.75em;
   line-height: 1.333333em;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   padding: 5px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4067,9 +4064,9 @@ a.forum-item-title:hover {
   float:left;
   list-style:none;
   display:inline-block;
-  min-width: 130px;
+  min-width:135px;
   text-align:center;
-  margin-left: 3px;
+  padding-left:3px;
   box-sizing:border-box;
 }
 .sub-tabs li:first-child {
@@ -4078,7 +4075,7 @@ a.forum-item-title:hover {
 .sub-tabs li a {
   display:inline-block;
   width:100%;
-  padding: 10px 30px;
+  padding:10px 30px 8px;
   background:#fff;
   border-top-left-radius:8px;
   border-top-right-radius:8px;
@@ -4762,7 +4759,7 @@ samp {
   border-bottom: 1px solid #e7eaec;
 }
 body {
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   background-color: #4d4d4d;
   font-size: 13px;
   color: #676a6c;
@@ -4874,7 +4871,7 @@ video {
   margin-bottom: 0;
 }
 /* MODAL */
-.modal {font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;}
+.modal {font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;}
 .modal-content {
   background-clip: padding-box;
   background-color: #fff;
@@ -4888,7 +4885,7 @@ video {
   z-index: 2200;
 }
 .modal-body {
-  padding: 10px 20px;
+  padding: 20px 30px;
 }
 .inmodal .modal-body {
   background: #f3f3f4;
@@ -4943,7 +4940,6 @@ video {
 }
 .wrapper-content {
   padding: 20px 10px 40px;
-  padding-top: 24px;
 }
 #page-wrapper {
   padding: 0 15px;
@@ -8405,7 +8401,7 @@ body.body-small .vote-icon {
 }
 body.landing-page {
   color: #676a6c;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   background-color: #fff;
 }
 .landing-page {
@@ -8493,7 +8489,7 @@ body.landing-page {
 }
 .landing-page .navbar-default .nav li a {
   color: #fff;
-  font-family: 'LG Smart_B', 'Nanum Gothic', '나눔고딕', 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', AppleSDGothicNeo, sans-serif;
+  font-family: 'LG Smart_B', 'Nanum Gothic', 'ë‚˜ëˆ”ê³ ë”•', 'Malgun Gothic', 'ë§‘ì€ ê³ ë”•', Dotum, 'ë‹ì›€', AppleSDGothicNeo, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -10386,6 +10382,7 @@ body.md-skin {
 #multiselect-wrap .dropdown-menu {
   max-height: 305px;
 }
+
 @charset "UTF-8";
 /* Info
  ========================================================================== */
@@ -10671,7 +10668,7 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 .wrapper-content .ibox .ibox-content #dateRagePicker { border-radius: 4px; }
 .wrapper-content .ibox .ibox-content #uploadUserIdChkBtn { padding-block: 8px;}
 .wrapper-content .ibox .ibox-content .footable.table > tfoot > tr > td {padding-block: 32px 14px;}
-.wrapper-content .ibox .ibox-content .input-group-addon.border-left-none { height: 42px; line-height: inherit; }
+.wrapper-content .ibox .ibox-content .input-group-addon.border-left-none {height: 42px;line-height: inherit;}
 .wrapper-content .ibox .ibox-content .agile-list li.success-element { border-left: 3px solid var(--brand-color-blue); }
 .wrapper-content .ibox .ibox-content #subAccountListTable .dropdown-menu { left: 890px !important; }
 .dataTables_wrapper {padding-bottom: 11px;}
@@ -10744,20 +10741,44 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
   .col-sm-3:has(#dateRagePicker) {flex: 1; max-width: 100%;}
 }
 
-/* 도메인 목록 */
+/* 계정 관리 */
+#treeSearchInput { height: 42px !important; }
+
+/* 도메인 관리 */
 #formSearch input.form-control { height: 42px !important;}
-
-/* 도메인 등록 */
+#formSearch .col-lg-3 {flex: 1;max-width: 137px; min-width: 103px;}
+#formCreateServiceGroup .col-lg-1, #formCreateServiceGroup .col-lg-2 {min-width: 117px;}
+#formCreateServiceGroup #inputDomainTo + a, #formCreateServiceGroup #inputDomainFrom + a { height: 34px; padding-block: 4px; }
 #formInsertDomain p span, #formInsertDomain .form-text.m-b-none:not(#upload_server_domain) { font-size: 13px; color: #888; }
-
 /* 도메인 세부 정보 */
 #tableWrapper .dataTables_wrapper { padding-inline: 0; }
+
+@media screen and (max-width: 1120px) {
+  #formSearch .input-group:has(input[name="searchKey"]) { margin-top: 38px; }
+}
+
+@media screen and (max-width: 991px) {
+  #formSearch .input-group:has(input[name="searchKey"]) { margin-top: 0; }
+}
+
+/* 서버 관리 */
+#formSearch .col-lg-1 {min-width: 119px; }
+#formSearch .col-lg-2 {min-width: 128px; }
+#progress-bar-container #progress-bar { background-color: var(--brand-color-dark-blue) !important; }
+#formSearch select { height: 42px !important;}
+#formSearch button { padding-block: 8px; }
+#formSearch #datepicker .input-group-addon {height: 42px;background-color: #fff;border: none;display: flex;align-items: center;margin-inline: 1px;}
+#formSearch #btnSearch {margin-left: -10px}
+#formSearch .btn-black-off { background-color: #ddd; border-color: #ddd; }
+@media screen and (max-width: 991px) {
+  #formSearch .form-group > div { margin-top: 8px; }
+}
 
 /* 리포트 설정 */
 .table-responsive:has(table[data-page-size="10"]) {padding-inline: 15px;}
 
 /* ACL 관리 */
-/* .dataTables_wrapper.container-fluid.dt-bootstrap4.no-footer { padding-inline: 0;} 다른데랑 겹쳐서 못씀*/
+/* .dataTables_wrapper.container-fluid.dt-bootstrap4.no-footer { padding-inline: 0;} 사용 불가*/
 
 /* 계정 목록 */
 .col-lg-12 h5 { margin-left: 15px; }
@@ -10849,6 +10870,28 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 #personalInformationConsent .modal-footer button:first-child { background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
 #personalInformationConsent .modal-footer button:last-child { background-color: var(--brand-color-dark-blue); color: #fff; }
 
+/* 개인정보 보호 */
+#pwd_change_notice_modal .modal-header { margin-inline: 0; }
+#pwd_change_notice_modal .modal-body { padding: 20px 30px; background: #F5F5F5;}
+#pwd_change_notice_modal .modal-body #notice a:first-child { background-color: var(--brand-color-dark-blue); border: 1px solid var(--brand-color-dark-blue) !important; color: #fff;}
+#pwd_change_notice_modal .modal-body #notice a:last-child { border: 1px solid #ddd !important; }
+#pwd_change_notice_modal .modal-footer { padding: 0.75rem; border-top: 1px solid #ddd; }
+
+/* 서비스 그룹 설정 */
+#service-group-set-modal #button-box {display: flex;}
+#service-group-set-modal #button-box button { border-radius: 4px; padding: 0.375rem 0.75rem; }
+#service-group-set-modal #button-box #cancelBtn { background-color: var(--light-blue); border-color: var(--light-blue); }
+#service-group-set-modal #left-title-box, #service-group-set-modal #right-title-box {  background-color: var(--brand-color-blue); border-color: var(--brand-color-blue); }
+
+/* 도메인 상태 변경 */
+#modalChangeStatus .btn.btn-red { background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
+/* 비밀번호 입력 */
+#layerPopupPassword .btn.btn-black {  background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
+/* 서브 계정 삭제 */
+#layerPopupDeleteAccount .btn.btn-black {  background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
 @media (min-width: 576px) {
     .modal-sm {
         max-width: 360px;
@@ -10862,8 +10905,8 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 .datepicker table.table-condensed tr td, .datepicker table.table-condensed tr td span { border-radius: 50% ; }
 .datepicker thead tr:first-child th {font-size: 15px;color: #666;}
 .datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover {background-color: #fff !important;}
-.datepicker thead tr:first-child th:first-child.prev {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat center bottom / 24px 24px;font-size: 0;transform: rotate(90deg);}
-.datepicker thead tr:first-child th:last-child.next {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat calc(100% - 4px)bottom / 24px 24px;font-size: 0;transform: rotate(-90deg);}
+.datepicker thead tr:first-child th:first-child.prev {background: url("/images/calendar-arrow.svg") no-repeat center bottom / 24px 24px;font-size: 0;transform: rotate(90deg);}
+.datepicker thead tr:first-child th:last-child.next {background: url("/images/calendar-arrow.svg") no-repeat calc(100% - 4px)bottom / 24px 24px;font-size: 0;transform: rotate(-90deg);}
 .datepicker table thead tr:nth-child(2) { background-color:#F5F5F5; }
 .datepicker table.table-condensed thead tr:last-child th:first-child { border-top-left-radius: 4px;  border-bottom-left-radius: 4px;}
 .datepicker table.table-condensed thead tr:last-child th:last-child { border-top-right-radius: 4px;  border-bottom-right-radius: 4px;}
@@ -10913,3 +10956,5 @@ select.form-control:focus { background-image: url("https://github.com/user-attac
 /* 아이콘 방향 전환 */
 .wrapper-content .ibox.border-bottom:not(.collapsed) .ibox-title.collapse-link { background-image: url("https://github.com/user-attachments/assets/50f8748d-41a1-4175-96f4-f920bf96ac7b"); }
 .wrapper-content .ibox.collapsed.border-bottom .ibox-title.collapse-link { background-image: url("https://github.com/user-attachments/assets/988c9db5-9812-437d-851f-86322d7a1556"); }
+.datepicker thead tr:first-child th:first-child.prev {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat center bottom / 24px 24px;font-size: 0;transform: rotate(90deg);}
+.datepicker thead tr:first-child th:last-child.next {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat calc(100% - 4px)bottom / 24px 24px;font-size: 0;transform: rotate(-90deg);}
