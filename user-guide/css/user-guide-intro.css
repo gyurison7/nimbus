@@ -75,14 +75,3 @@ body, h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong { font-
     #wrap #container #inner #items_container { gap: 10px; }
     #wrap #container #inner #items_container .item { font-size: 20px; } 
 }
-
-
-/* 이미지 확인용(제거 예정) */
-#wrap { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; background-image: url("https://github.com/user-attachments/assets/c4ddcdae-d557-4473-8ec1-287341c9a12a"); background-repeat: no-repeat; background-position: center; background-size: cover; }
-#wrap #container #inner #inner_title_line #inner_title_first { display: block; width: 100%; height: 65.19px; background-image: url("https://github.com/user-attachments/assets/ad5846ab-11f0-4c32-a33c-1f97628d0d75"); background-repeat: no-repeat; background-position: left center; background-size: 221.47px 65.19px; color: transparent; }
-#wrap #container #inner #items_container .item:first-child::after { background-image: url("https://github.com/user-attachments/assets/b58b1673-0b57-448b-ad5c-5e2c23fd81d4"); }
-#wrap #container #inner #items_container .item:nth-child(2)::after { background-image: url("https://github.com/user-attachments/assets/c002ba20-b601-4c7c-a4ee-dde4490dc52a"); }
-#wrap #container #inner #items_container .item:nth-child(3)::after { background-image: url("https://github.com/user-attachments/assets/54e79294-8669-45ab-9ea6-6c236ac031cd"); }
-#wrap #container #inner #items_container .item:nth-child(4)::after { background-image: url("https://github.com/user-attachments/assets/67a5e492-b8ff-4d44-8279-dd4bd30e2e30"); }
-#wrap #container #inner #items_container .item:nth-child(5)::after { background-image: url("https://github.com/user-attachments/assets/da29eb7a-973d-4706-ad28-d94195df934d"); }
-#wrap #container #inner #items_container .item:last-child::after { background-image: url("https://github.com/user-attachments/assets/37210e18-717d-4551-b26f-8305fe306a72"); }

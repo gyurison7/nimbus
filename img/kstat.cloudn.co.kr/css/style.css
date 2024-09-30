@@ -10459,7 +10459,7 @@ body.md-skin {
 .btn.btn-sm, .btn.btn-lg { padding: 8.5px 28.68px; }
 .btn-secondary, .btn-secondary:hover, .btn-secondary:focus,
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle { background-color: var(--light-blue); border-color: var(--light-blue); }
-#btnSearch {padding-inline: 20px;}
+#btnSearch {padding-inline: 20px; z-index: 4;}
 
 .icon-btn { color: var(--brand-color-dark-blue) !important; }
 
@@ -10509,6 +10509,7 @@ select.form-control:focus { background-image: url("/images/cjDomain/select-arrow
 .onoffswitch-inner:before, .onoffswitch-inner:after { height: 100%; line-height: 22.4px; font-size: 12px; }
 .onoffswitch-inner:before { padding-left: 11px; background-color: var(--brand-color-blue); }
 .onoffswitch-inner:after { padding-right: 11px; color: var(--brand-color-blue); }
+.onoffswitch-checkbox:disabled + .onoffswitch-label, .onoffswitch-checkbox:disabled + .onoffswitch-label .onoffswitch-switch { border: 1px solid var(--brand-color-blue); opacity: 0.4; }
 
 /* tooltip */
 .tooltip-show .tooltip-text { width: 155px; }
@@ -10744,12 +10745,14 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 /* 계정 관리 */
 #treeSearchInput { height: 42px !important; }
 
-/* 도메인 목록 */
+/* 도메인 관리 */
 #formSearch input.form-control { height: 42px !important;}
 #formSearch .col-lg-3 {flex: 1;max-width: 137px; min-width: 103px;}
 #formCreateServiceGroup .col-lg-1, #formCreateServiceGroup .col-lg-2 {min-width: 117px;}
 #formCreateServiceGroup #inputDomainTo + a, #formCreateServiceGroup #inputDomainFrom + a { height: 34px; padding-block: 4px; }
-
+#formInsertDomain p span, #formInsertDomain .form-text.m-b-none:not(#upload_server_domain) { font-size: 13px; color: #888; }
+/* 도메인 세부 정보 */
+#tableWrapper .dataTables_wrapper { padding-inline: 0; }
 
 @media screen and (max-width: 1120px) {
   #formSearch .input-group:has(input[name="searchKey"]) { margin-top: 38px; }
@@ -10759,12 +10762,6 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
   #formSearch .input-group:has(input[name="searchKey"]) { margin-top: 0; }
 }
 
-/* 도메인 등록 */
-#formInsertDomain p span, #formInsertDomain .form-text.m-b-none:not(#upload_server_domain) { font-size: 13px; color: #888; }
-
-/* 도메인 세부 정보 */
-#tableWrapper .dataTables_wrapper { padding-inline: 0; }
-
 /* 서버 관리 */
 #formSearch .col-lg-1 {min-width: 119px; }
 #formSearch .col-lg-2 {min-width: 128px; }
@@ -10773,6 +10770,7 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 #formSearch button { padding-block: 8px; }
 #formSearch #datepicker .input-group-addon {height: 42px;background-color: #fff;border: none;display: flex;align-items: center;margin-inline: 1px;}
 #formSearch #btnSearch {margin-left: -10px}
+#formSearch .btn-black-off { background-color: #ddd; border-color: #ddd; }
 @media screen and (max-width: 991px) {
   #formSearch .form-group > div { margin-top: 8px; }
 }
@@ -10788,6 +10786,13 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 #subAccountTree { padding-inline: 15px; }
 #treeViewIbox { margin-left: 15px; }
 #tableIbox { margin-inline: 20px 15px; }
+.col-lg-5:has(#treeSearchBtn) {min-width: 152px;}
+#treeSearchMoveDiv { font-size: 13px;}
+
+@media screen and (max-width: 1739px) {
+  .col-lg-7:has(#treeSearchInput) { flex: 0 0 100%; max-width: 100%; }
+  .col-lg-5:has(#treeSearchBtn) {margin-left: 15px;margin-top: 8px;] ;}
+}
 
 /* 계정 등록 */
 #formRegist .form-text.m-b-none { font-size: 13px; color: #888; }
@@ -10880,6 +10885,26 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 #pwd_change_notice_modal .modal-body #notice a:last-child { border: 1px solid #ddd !important; }
 #pwd_change_notice_modal .modal-footer { padding: 0.75rem; border-top: 1px solid #ddd; }
 
+/* 서비스 그룹 설정 */
+#service-group-set-modal #button-box {display: flex;transform: translateX(-50%);margin-left: 0;margin-top: -30.5px;}
+#service-group-set-modal #button-box button {border-radius: 4px;padding: 8.5px 28.68px;}
+#service-group-set-modal #button-box #cancelBtn { background-color: var(--light-blue); border-color: var(--light-blue); }
+#service-group-set-modal #left-title-box, #service-group-set-modal #right-title-box { width: 100%; background-color: var(--brand-color-dark-blue); border-color: var(--brand-color-dark-blue-blue); font-size: 16px; border-radius: 4px 4px 0 0;}
+#service-group-set-modal #left-contents-box, #service-group-set-modal #right-contents-box {border-radius: 0 0 4px 4px;border-color: #ddd;}
+#service-group-set-modal #left-box, #service-group-set-modal #right-box { box-shadow: none;}
+#service-group-set-modal #move-btn-box { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;}
+#service-group-set-modal .move-btn { font-size: 24px; }
+#service-group-set-modal .sort-label-box { font-size: 13px;}
+
+/* 도메인 상태 변경 */
+#modalChangeStatus .btn.btn-red { background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
+/* 비밀번호 입력 */
+#layerPopupPassword .btn.btn-black {  background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
+/* 서브 계정 삭제 */
+#layerPopupDeleteAccount .btn.btn-black {  background: #fff;color: #666;border: none;border-top: 1px solid #ddd; }
+
 @media (min-width: 576px) {
     .modal-sm {
         max-width: 360px;
@@ -10893,8 +10918,8 @@ body.mini-navbar .navbar.navbar-static-top .navbar-header .navbar-minimalize:bef
 .datepicker table.table-condensed tr td, .datepicker table.table-condensed tr td span { border-radius: 50% ; }
 .datepicker thead tr:first-child th {font-size: 15px;color: #666;}
 .datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover {background-color: #fff !important;}
-.datepicker thead tr:first-child th:first-child.prev {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat center bottom / 24px 24px;font-size: 0;transform: rotate(90deg);}
-.datepicker thead tr:first-child th:last-child.next {background: url("https://github.com/user-attachments/assets/54bcff59-3c50-46bc-b6f1-f6c48ba3b1d1") no-repeat calc(100% - 4px)bottom / 24px 24px;font-size: 0;transform: rotate(-90deg);}
+.datepicker thead tr:first-child th:first-child.prev {background: url("/images/cjDomain/calendar-arrow.svg") no-repeat center bottom / 24px 24px;font-size: 0;transform: rotate(90deg);}
+.datepicker thead tr:first-child th:last-child.next {background: url("/images/cjDomain/calendar-arrow.svg") no-repeat calc(100% - 4px)bottom / 24px 24px;font-size: 0;transform: rotate(-90deg);}
 .datepicker table thead tr:nth-child(2) { background-color:#F5F5F5; }
 .datepicker table.table-condensed thead tr:last-child th:first-child { border-top-left-radius: 4px;  border-bottom-left-radius: 4px;}
 .datepicker table.table-condensed thead tr:last-child th:last-child { border-top-right-radius: 4px;  border-bottom-right-radius: 4px;}

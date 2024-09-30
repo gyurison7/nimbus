@@ -136,14 +136,3 @@ body, h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong { font-
 #scroll_top_btn #scroll_top_pdf_box::before { display: block; width: 18px; height: 18px; background-image: url("/images/user_guide/icon-download-red.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: '';}
 #scroll_top_btn #scroll_top_pdf_box i { display: none; }
 #scroll_top_btn #scroll_top_pdf_box span { padding-inline: 6px; text-align: center; }
-
-
-/* 이미지 확인용(제거 예정) */
-.header .navbar_logo .logo { display: block; width: 175.54px; height: 51.67px; background-image: url("https://github.com/user-attachments/assets/11cd8c2f-ab98-4b43-8607-b4450795b4f7"); background-repeat: no-repeat; background-position: center; background-size: auto; }
-.sidebar #sidebar_btn_ul_wrapper .sidebar_btn::before { display: block; width: 30px; height: 30px; background-image: url("https://github.com/user-attachments/assets/4ff03070-ff7d-4913-aee3-b9e9f2bfe786"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; }
-.sidebar #sidebar_ul_wrapper ul.ul_depth0 > li:first-child > a::before { display: block; width: 30px; height: 30px; background-image: url("https://github.com/user-attachments/assets/2198f3cf-e7b8-45cf-a26e-ca4119de42ed"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; }
-.sidebar #sidebar_ul_wrapper ul.ul_depth0 > li:first-child > a:hover::before { background-image: url("https://github.com/user-attachments/assets/9d75e547-39e5-4d2b-9352-35a58644b9a8");}
-#docs_contents #docs_contents_root #downloadPDFWrapper #downloadPDF #PDF_iconBox { position: relative; width: 24px; height: 24px; margin-right: 29px; background-image: url("https://github.com/user-attachments/assets/11029629-d208-459a-9438-a43c436bd766"); background-repeat: no-repeat; background-position: center; background-size: cover; }
-#docs_contents #docs_contents_root #recently_updated_date_box #recently_updated_date_title::before { display: block; width: 20px; height: 20px; background-image: url("https://github.com/user-attachments/assets/55ab32d0-e70e-4021-9a5e-dbd17366de93"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; }
-#scroll_top_btn #scroll_top_arrow_box::before { position: static; width: 18px; height: 18px; border: 0; background-image: url("https://github.com/user-attachments/assets/009fbd0f-541c-44ef-bcb6-f417a90d3a6f"); background-repeat: no-repeat; background-position: center; background-size: cover; }
-#scroll_top_btn #scroll_top_pdf_box::before { display: block; width: 18px; height: 18px; background-image: url("https://github.com/user-attachments/assets/ac29ae66-d491-423a-b097-c30981376752"); background-repeat: no-repeat; background-position: center; background-size: cover; content: '';}
