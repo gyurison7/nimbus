@@ -1,7 +1,0 @@
-브랜드 컬러 클래스명입니다. 
-
-1. .brand-color-blue { color: #0070C0; }
-2. .brand-color-dark-blue { color: #004D85; }
-
-1. 클래스명 brand-color-blue를 추가하면 색상 코드 "#0070C0"로 나타납니다.
-2. 클래스명 brand-color-dark-blue를 추가하면 색상 코드 "#004D85"로 나타납니다.

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-09-25
+ * 3. Client: Nimbusnetworks
+ */
+
+/*========== Font ==========*/
+/* Pretendard Variable */
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 400;
+    src: url('/fonts/Pretendard-Regular.woff2') format('woff2'),
+        url('/fonts/Pretendard-Regular.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 500;
+    src: url('/fonts/Pretendard-Medium.woff2') format('woff2'),
+        url('/fonts/Pretendard-Medium.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 600;
+    src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2'),
+        url('/fonts/Pretendard-SemiBold.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 700;
+    src: url('/fonts/Pretendard-Bold.woff2') format('woff2'),
+        url('/fonts/Pretendard-Bold.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 800;
+    src: url('/fonts/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('/fonts/Pretendard-ExtraBold.otf') format('otf'); 
+}
+
+/*========== reset ==========*/
+body, h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong {font-family: "Pretendard", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
+
+/*========== login ==========*/
+.loginColumns h1 { color: var(--brand-color-dark-blue)}

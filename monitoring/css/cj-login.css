@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-10-02
+ * 3. Client: Nimbusnetworks
+ */
+
+/*========== Font ==========*/
+/* Pretendard Variable */
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 400;
+    src: url('/assets/stylesheets/template/font/Pretendard-Regular.woff2') format('woff2'),
+        url('/assets/stylesheets/template/font/Pretendard-Regular.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 500;
+    src: url('/assets/stylesheets/template/font/Pretendard-Medium.woff2') format('woff2'),
+        url('/assets/stylesheets/template/font/Pretendard-Medium.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 600;
+    src: url('/assets/stylesheets/template/font/Pretendard-SemiBold.woff2') format('woff2'),
+        url('/assets/stylesheets/template/font/Pretendard-SemiBold.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 700;
+    src: url('/assets/stylesheets/template/font/Pretendard-Bold.woff2') format('woff2'),
+        url('/assets/stylesheets/template/font/Pretendard-Bold.otf') format('otf'); 
+} 
+@font-face {
+    font-family:'Pretendard';
+    font-weight: 800;
+    src: url('/assets/stylesheets/template/font/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('/assets/stylesheets/template/font/Pretendard-ExtraBold.otf') format('otf'); 
+}
+
+/*========== common ==========*/
+/* color */
+ :root {
+    --brand-color-blue: #0070C0 !important;
+    --brand-color-dark-blue: #004D85 !important;
+    --light-blue: #B0C4D1;
+    --bg-gray-color: #F2F2F2;
+    --orange-color: #FF9700;
+    --bg-blue-color: #ebf4f8;
+}
+
+/*========== login ==========*/
+html:has(#login_form), body:has(#login_form) {background-color: var(--bg-gray-color);}
+.box {padding: 180px 60px 60px; background-color: #243848;}
+.box::before {display: none;}
+.box::after {content: '';position: absolute;top: 48px;left: 50%;transform: translate(-50%, 0);width: 133.79px;height: 88.74px;background-image:url('/assets/images/logo/cj/cj-logo.svg');background-repeat: no-repeat;background-position: center;background-size: contain;}
+.btn-twitter {height: auto;background-color: transparent;padding: 0; color:#fff;font-weight: 700;}
+.btn-twitter:hover {height: auto;background-color: transparent;padding: 0;color:#fff;}
+.btn-twitter:active {box-shadow: none;padding: 0;}
+#login_form .form-control { height: 42px;}
+#login_form .form-control:focus {background-color: #fff;border-color: #fff;}
+#login_form .btn {height: auto; background-color: #142c3e; border-color: #142c3e;}
+#login_form .btn-primary { padding: 13px 12px; border-radius: 6px; line-height: 1; }
+#login_form .btn-primary:hover {background-color: #142c3e;border-color: #142c3e;}

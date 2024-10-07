@@ -45,10 +45,10 @@
 body, html { height: 100% }
 body, h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong { font-family: "Pretendard", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important; } 
 
-#wrap { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; background-image: url("/images/user_guide_intro/user-guide-bg.jpg"); background-repeat: no-repeat; background-position: center; background-size: cover; }
+#wrap { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; background-image: url("/images/cjDomain/user-guide-bg.jpg"); background-repeat: no-repeat; background-position: center; background-size: cover; }
 #wrap #container #inner { display: flex; flex-wrap: wrap; max-width: 1077px; }
 #wrap #container #inner #inner_title_line { display: flex; flex-wrap: wrap; width: 100%; }
-#wrap #container #inner #inner_title_line #inner_title_first { display: block; width: 100%; height: 65.19px; background-image: url("/images/user_guide_intro/cj-logo-white-2024.svg"); background-repeat: no-repeat; background-position: left center; background-size: 221.47px 65.19px; color: transparent; }
+#wrap #container #inner #inner_title_line #inner_title_first { display: block; width: 100%; height: 65.19px; background-image: url("/images/cjDomain/cj-logo-white-2024.svg"); background-repeat: no-repeat; background-position: left center; background-size: 221.47px 65.19px; color: transparent; }
 #wrap #container #inner #inner_title_line #inner_title_second { padding-left: 0; }
 #wrap #container #inner #inner_title_line #inner_title_second, #wrap #container #inner #inner_title_line #inner_title_third { padding-top: 20px; font-size: 50px; font-weight: 800; font-style: normal; color: #fff; line-height: 1.18; }
 #wrap #container #inner #inner_title_line #inner_title_third { padding-left: 15px; }
@@ -56,12 +56,12 @@ body, h1, h2, h3, h4, h5, h6, input, button, select, textarea, b, strong { font-
 #wrap #container #inner #items_container .item { position: relative; width: 200px; margin: 0; padding: 20px 21px 91px; border: 1px solid #383838; border-radius: 8px; background-color: transparent; font-size: 24px; font-weight: 600; text-align: left; color: #fff; transition: background-color 0.3s, color 0.3s; cursor: pointer; }
 #wrap #container #inner #items_container .item:hover { background-color: #fff; color: #111; }
 #wrap #container #inner #items_container .item::after { display: block; position: absolute; bottom: 16px; right: 16px; width: 60px; height: 60px;  background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; }
-#wrap #container #inner #items_container .item:first-child::after { background-image: url("/images/user_guide_intro/icon-user-guide1.svg"); }
-#wrap #container #inner #items_container .item:nth-child(2)::after { background-image: url("/images/user_guide_intro/icon-user-guide2.svg"); }
-#wrap #container #inner #items_container .item:nth-child(3)::after { background-image: url("/images/user_guide_intro/icon-user-guide3.svg"); }
-#wrap #container #inner #items_container .item:nth-child(4)::after { background-image: url("/images/user_guide_intro/icon-user-guide4.svg"); }
-#wrap #container #inner #items_container .item:nth-child(5)::after { background-image: url("/images/user_guide_intro/icon-user-guide5.svg"); }
-#wrap #container #inner #items_container .item:last-child::after { background-image: url("/images/user_guide_intro/icon-user-guide6.svg"); }
+#wrap #container #inner #items_container .item:first-child::after { background-image: url("/images/cjDomain/icon-user-guide1.svg"); }
+#wrap #container #inner #items_container .item:nth-child(2)::after { background-image: url("/images/cjDomain/icon-user-guide2.svg"); }
+#wrap #container #inner #items_container .item:nth-child(3)::after { background-image: url("/images/cjDomain/icon-user-guide3.svg"); }
+#wrap #container #inner #items_container .item:nth-child(4)::after { background-image: url("/images/cjDomain/icon-user-guide4.svg"); }
+#wrap #container #inner #items_container .item:nth-child(5)::after { background-image: url("/images/cjDomain/icon-user-guide5.svg"); }
+#wrap #container #inner #items_container .item:last-child::after { background-image: url("/images/cjDomain/icon-user-guide6.svg"); }
 
 @media screen and (max-width: 1200px) {
     #wrap #container #inner {max-width: 800px;}
