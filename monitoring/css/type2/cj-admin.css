@@ -103,7 +103,7 @@ input.form-control { height: 42px !important; }
 /*========== main-menu ==========*/
 .mme #main-menu, #main-menu, .mme #main-menu-bg, #main-menu-bg { width: 220px;}
 .theme-clean #main-menu #main-menu-inner { padding-top: 0;}
-#main-menu .navigation {padding: 156px 0 0; background-color: #142C3E; background-image: url("/assets/images/logo/contentsbridge/cj-logo-2024.svg");background-repeat: no-repeat;background-position: center 29px;background-size: 133.79px 88.74px;}
+#main-menu .navigation {padding: 156px 0 0; background-color: #142C3E; background-image: url("/assets/images/logo/cj/cj-logo.svg");background-repeat: no-repeat;background-position: center 29px;background-size: 133.79px 88.74px;}
 #main-menu .mm-dropdown ul { padding: 0; }
 #main-menu ul.navigation > li { background-color: #243848; }
 #main-menu .navigation > li > a { padding: 14px 10px;}
@@ -160,15 +160,26 @@ ul.dropdown-menu > li > a {margin-inline: 8px;}
 #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(3).col-xs-5 {width: 42.66667%;}
 #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:last-child {width: 7.7%;margin-left: -11px;min-width: 100px; padding-right: 0;}
 #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) button:last-child {width: 100%;margin-top: 24px;}
-#search_d {margin-left: 11px;display: flex;flex-direction: column;gap: 8px;}
-#search_d div[id^="list_d"] button {width: 42px;margin-left: -11px;position: relative;font-family: "Font Awesome 5 Free";font-weight: 600;}
-#search_d div[id^="list_d"] button::before {content: "\f00d";position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 15px;color: #fff;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);}
+#search_d div[id^="list_d"] button {width: 42px;position: relative;font-family: "Font Awesome 5 Free";font-weight: 600; background-color: transparent !important; border: none;}
+#search_d div[id^="list_d"] button:active {box-shadow: none;}
+#search_d div[id^="list_d"] button::before {content: "\f00d";position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 15px;color: #bbb;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);}
 #search_d div[id^="list_d"] button span {font-size: 0;}
 .bs-searchbox + .bs-actionsbox { padding-top: 0;}
 .dropdown-menu .bs-done-button::before { font-size: 15px;}
 #monitoring_panel .panel-heading::before { color: var(--brand-color-dark-blue);}
 .theme-clean.mmc #main-menu .navigation > .mm-dropdown.open > a { position: relative;}
 .theme-clean #main-menu .navigation > .mm-dropdown.active > a::before {display: block;content: "";position:absolute;width: 4px;height: 100%;background-color: var(--brand-color-blue);top: 0;left: 0;transform: rotate(0);}
+#condition_panel .panel-body > .row#search_d {display: flex; flex-direction: row; justify-content: flex-start; flex-wrap: wrap; width: 100%;margin: 0 10px; gap: 20px;}
+#condition_panel .panel-body > .row#search_d > .row {position: relative; display: flex; align-items: center;justify-content: flex-start; width: calc(100% / 6 - 17px);margin: 0; padding: 0;}
+#condition_panel .panel-body > .row#search_d::before, #condition_panel .panel-body > .row#search_d::after,
+#condition_panel .panel-body > .row#search_d .row:before, #condition_panel .panel-body > .row#search_d .row:after {display: none;}
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 {float: initial; width: 100%; margin: 0;padding: 0;}
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 input { border: none !important;}
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 input[disabled], 
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 input[readonly], 
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 input:focus, #condition_panel .panel-body > .row#search_d > .row .col-lg-10 input:active, 
+#condition_panel .panel-body > .row#search_d > .row .col-lg-10 input[disabled] {border: none !important;}
+#condition_panel .panel-body > .row#search_d > .row .col-lg-2 {position: absolute;top: 0;right: 0;z-index: 1;width: 42px;float: initial;margin: 0;padding: 0;}
 
 @media screen and (max-width: 1540px) {
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(3).col-xs-5 {width: 41%;}
@@ -178,18 +189,22 @@ ul.dropdown-menu > li > a {margin-inline: 8px;}
 }
 @media screen and (max-width: 1256px) {
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(3).col-xs-5 {width: 37.5%;}
+    #condition_panel .panel-body > .row#search_d > .row { width: calc(100% / 4 - 17px);}
 }
 @media screen and (max-width: 1160px) {
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(2).col-xs-2 {width: 18.66667%;} 
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(3).col-xs-5 {width: 34.5%;}
     #condition_panel .panel-body > .row:has(#input_date) > div:has(.input-group-addon) {margin-top: 0;}
+    #condition_panel .panel-body > .row#search_d > .row { width: calc(100% / 2 - 17px);}
 }
 @media screen and (max-width: 992px) {
     #content-wrapper {overflow: hidden; overflow-x: auto; min-width: 755px;}
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) > div:nth-child(3).col-xs-5 {width: 85%;margin-top: 20px;}
     #condition_panel .panel-body > .row#tr_select_customer:not(:first-child) button:last-child {margin-top: 44px;}
     #condition_panel .panel-body > .row:has(#input_date) > div:has(.input-group-addon) {margin-top: 20px;}
-    #condition_panel .panel-body > .row#search_d > div .col-xs-10:has(.form-control) {padding-left: 0;width: 49.33333%;}
+    #condition_panel .panel-body > .row#search_d > div .col-xs-10:has(.form-control) {padding-left: 0;width: 100%;}
+    #condition_panel .panel-body > .row#search_d {margin: 20px 0 0;}
+    #condition_panel .panel-body > .row#search_d > .row { width: 89%;}
 }
 
 /*========== datepicker ==========*/
